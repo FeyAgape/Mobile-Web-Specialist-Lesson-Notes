@@ -7,3 +7,5 @@ for (var i = 0, headings = $$('h1,h2,h3,h4,h5,h6');
                headings[i].tagName,
                headings[i]);
 }
+
+//The benefits of Offline first
