@@ -2,3 +2,9 @@ Offline first techniques
 
 1. Deliver the page's header and content from a cache on the device, then attempt to fetch updated content from the network
 2. Deliver the page's header from a cache, then attempt to fetch the content from the network
+
+to run your project on the server
+
+Run npm install to install all dependencies the application requires.
+
+Use npm run serve to kickoff the build scripts and launch a server that hosts the application at http://localhost:8888
