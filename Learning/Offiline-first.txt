@@ -37,5 +37,7 @@ a cache box contains (request and response pairs) from any secure origin
 
 
 
-AJAX(Asynchronous Javascript and XML) with XHR
+AJAX( or otherwise known as Asynchronous Javascript and XML, however its now know has the concept of asynchronously requesting data) with XHR
 AJAX allows you to make a request for data without the need to pause everything to wait for the request to return. it allows you to move on and do something else, and once the request returns you deal with it. 
+
+API (Application Programming Interface)
