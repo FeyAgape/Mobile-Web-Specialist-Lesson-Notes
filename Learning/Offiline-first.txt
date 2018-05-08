@@ -1,10 +1,24 @@
 Offline first techniques
 
+
 1. Deliver the page's header and content from a cache on the device, then attempt to fetch updated content from the network
 2. Deliver the page's header from a cache, then attempt to fetch the content from the network
 
-to run your project on the server
+
+
+
+To run your project on the server
+
 
 Run npm install to install all dependencies the application requires.
 
 Use npm run serve to kickoff the build scripts and launch a server that hosts the application at http://localhost:8888
+
+
+
+Introducing the Service Worker
+
+
+A Service worker give you power over the network. its a webworker that run seperately from your page.
+you register for a service worker like this, ginving the location of your service worker
+navigator.serviceWorker.register('/sw.js')  
