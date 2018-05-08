@@ -36,4 +36,4 @@ caches.open('my-stuff').then(function(cache) {
 	//this returns a promise for a cache with that name or it creates one if their isn't a chache with that name and opens it
 });
 
-//a cache box contains request and response pairs from any secure origin
+//a cache box contains (request and response pairs) from any secure origin

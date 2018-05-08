@@ -18,7 +18,24 @@ Use npm run serve to kickoff the build scripts and launch a server that hosts th
 
 Introducing the Service Worker
 
-
 A Service worker give you power over the network. its a webworker that run seperately from your page.
 you register for a service worker like this, ginving the location of your service worker
-navigator.serviceWorker.register('/sw.js')  
+navigator.serviceWorker.register('/sw.js') 
+
+
+CASHE API
+
+If you want to load content .i.e html, css, assets and js without using the network, we need somewhere to store the html, css, js and assets, using the CASCHE API
+
+o open or create a cache 
+caches.open('my-stuff').then(function(cache) {
+	// body...
+	//this returns a promise for a cache with that name or it creates one if their isn't a chache with that name and opens it
+});
+
+a cache box contains (request and response pairs) from any secure origin
+
+
+
+AJAX(Asynchronous Javascript and XML) with XHR
+AJAX allows you to make a request for data without the need to pause everything to wait for the request to return. it allows you to move on and do something else, and once the request returns you deal with it. 
