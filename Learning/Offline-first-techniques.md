@@ -68,6 +68,7 @@ So we've constructed an XHR object named asyncRequestObject. There are a number 
 If we want to asynchronously request the homepage from the popular high-res image site, Unsplash, we'd use a GET request and provide the URL:
 
 `const asyncRequestObject = new XMLHttpRequest();`
+
 `asyncRequestObject.open('GET', 'https://unsplash.com');`
 
 **A little rusty on your HTTP methods?**
