@@ -22,7 +22,7 @@ Use `npm run serve` to kickoff the build scripts and launch a server that hosts 
 ### Introducing the Service Worker
 
 A Service worker give you power over the network. its a webworker that run seperately from your page.
-you register for a service worker like this, ginving the location of your service worker
+you register for a service worker like this, giving the location of your service worker
 
 `navigator.serviceWorker.register('/sw.js')` 
 
@@ -78,3 +78,7 @@ The main two that you'll be using are:
 > GET - to retrieve data
 
 > POST- to send data
+
+**Warning:** *For security reasons, you can only make requests for assets and data on the same domain as the site that will end up loading the data. For example, to asynchronously request data from google.com your browser needs to be on google.com. This is known as the [same-origin policy](https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy).* This might seem extremely limiting, and it is!
+
+The reason for this is because JavaScript has control over so much information on the page. It has access to all cookies and can determine passwords since it can track what keys are pressed. However, the web wouldn't be what it is today if all information was bordered off in its own silos. The way to circumvent the same-origin policy is with [CORS (Cross-Origin Resource Sharing)](https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS). CORS must a technology that is implemented on the server. Services that provide APIs use CORS to allow developers to circumvent the same-origin policy and access their information.
