@@ -82,3 +82,22 @@ The main two that you'll be using are:
 **Warning:** *For security reasons, you can only make requests for assets and data on the same domain as the site that will end up loading the data. For example, to asynchronously request data from google.com your browser needs to be on google.com. This is known as the [same-origin policy](https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy).* This might seem extremely limiting, and it is!
 
 The reason for this is because JavaScript has control over so much information on the page. It has access to all cookies and can determine passwords since it can track what keys are pressed. However, the web wouldn't be what it is today if all information was bordered off in its own silos. The way to circumvent the same-origin policy is with [CORS (Cross-Origin Resource Sharing)](https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS). CORS must a technology that is implemented on the server. Services that provide APIs use CORS to allow developers to circumvent the same-origin policy and access their information.
+
+### For Example:1
+
+if you go to Google, open up the developer tools, and run the following on the console:
+
+`const req = new XMLHttpRequest();
+req.open('GET', 'https://www.google.com/');`
+
+nothing happens because the XHR's .open() method does not actually send the request! It sets the stage and gives the object the info it will need when the request is actually sent. 
+
+
+### For Example:2 
+
+or if you go on udacity open up the developer tools, and run the following on the console:
+
+`const myAsyncRequest = new XMLHttpRequest();
+myAsyncRequest.open('GET', 'https://udacity.com/', false);`
+
+Passing false as the third option makes the XHR request become a synchronous one. This will cause the JavaScript engine to pause and wait until the request is returned before continuing - this "pause and wait" is also called "blocking". This is a terrible idea and completely defeats the purpose for having an asynchronous behavior. Make sure you never set your XHR objects this way! Instead, either pass true as the 3rd argument or leave it blank (which makes it default to true).'
