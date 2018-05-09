@@ -101,3 +101,7 @@ or if you go on udacity open up the developer tools, and run the following on th
 myAsyncRequest.open('GET', 'https://udacity.com/', false);`
 
 Passing false as the third option makes the XHR request become a synchronous one. This will cause the JavaScript engine to pause and wait until the request is returned before continuing - this "pause and wait" is also called "blocking". This is a terrible idea and completely defeats the purpose for having an asynchronous behavior. Make sure you never set your XHR objects this way! Instead, either pass true as the 3rd argument or leave it blank (which makes it default to true).'
+
+### To actually send the request, we need to use the send method:
+
+`asyncRequestObject.send();`
