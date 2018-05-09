@@ -105,7 +105,33 @@ Passing false as the third option makes the XHR request become a synchronous one
 ### To actually send the request, we need to use the send method: `asyncRequestObject.send();`
 
 `const asyncRequestObject = new XMLHttpRequest();`
-
 `asyncRequestObject.open('GET', 'https://unsplash.com');`
-
 `asyncRequestObject.send();`
+
+this code makes a request however it does absolutely nothing
+
+### Handling Success
+To handle the successful response of an XHR request, we set the onload property on the object to a function that will handle it:
+
+`function handleSuccess () {
+    // in the function, the *this* value is the XHR object
+    // this.responseText holds the response from the server`
+
+    console.log( this.responseText ); // the HTML of https://unsplash.com/
+`}`
+
+`asyncRequestObject.onload = handleSuccess;`
+
+As we just saw, if onload isn't set, then the request does return...but nothing happens with it.
+
+### Handling Errors
+You might've picked up that onload is called when the response is successful. If something happens with the request and it can't be fulfilled, then we need to use the onerror property:
+
+`function handleError () {
+    // in the function, the `this` value is the XHR object
+    console.log( 'An error occurred 😞' );
+`}
+
+`asyncRequestObject.onerror = handleError;`
+
+As with onload, if onerror isn't set and an error occurs, that error will just fail silently and your code (and your user!) won't have any idea what's wrong or any way to recover."
