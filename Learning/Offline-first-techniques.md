@@ -125,7 +125,7 @@ To handle the successful response of an XHR request, we set the onload property 
 As we just saw, if onload isn't set, then the request does return...but nothing happens with it.
 
 ### Handling Errors
-You might've picked up that onload is called when the response is successful. If something happens with the request and it can't be fulfilled, then we need to use the onerror property:
+You might've picked up that **onload** is called when the response is successful. If something happens with the request and it can't be fulfilled, then we need to use the onerror property:
 
 `function handleError () {
     // in the function, the `this` value is the XHR object
@@ -134,7 +134,7 @@ You might've picked up that onload is called when the response is successful. If
 
 `asyncRequestObject.onerror = handleError;`
 
-As with onload, if onerror isn't set and an error occurs, that error will just fail silently and your code (and your user!) won't have any idea what's wrong or any way to recover."
+As with onload, if **onerror** isn't set and an error occurs, that error will just fail silently and your code (and your user!) won't have any idea what's wrong or any way to recover."
 
 
 Here's the full code that we've built up that creates the XHR object, tells it what info to request, sets up handlers for a success or error, and then actually sends the request:
@@ -157,7 +157,7 @@ Getting the HTML of a website is ok, but it's probably not very useful. The data
 
 Instead of requesting the base URL for Unsplash, let's create an app that pulls an image from Unsplash's API and relevant articles from the New York Times.
 
-When making a request from an API that returns JSON, all we need to do is convert that JSON response into a JavaScript object. We can do that with JSON.parse();. Let's tweak the onload function to handle a JSON response:
+When making a request from an API that returns JSON, **all we need to do is convert that JSON response into a JavaScript object. We can do that with JSON.parse();.** Let's tweak the onload function to handle a JSON response:
 
 `function handleSuccess () {
 const data = JSON.parse( this.responseText ); // convert data from JSON to a JavaScript object
