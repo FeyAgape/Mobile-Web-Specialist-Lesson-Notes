@@ -32,10 +32,13 @@ If you want to load content .i.e html, css, assets and js without using the netw
 
 to open or create a cache
 
-`caches.open('my-stuff').then(function(cache) {
-	// body...
-	//this returns a promise for a cache with that name or it creates one if their isn't a chache with that name and opens it
-});`
+`caches.open('my-stuff').then(function(cache) {`
+
+	// body...`
+
+	//this returns a promise for a cache with that name or it creates one if their isn't a chache with that name and opens it`
+
+`});`
 
 a cache box contains (request and response pairs) from any secure origin
 
