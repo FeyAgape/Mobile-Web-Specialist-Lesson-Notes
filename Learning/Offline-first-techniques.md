@@ -23,7 +23,8 @@ Use `npm run serve` to kickoff the build scripts and launch a server that hosts 
 
 A Service worker give you power over the network. its a webworker that run seperately from your page.
 you register for a service worker like this, ginving the location of your service worker
-navigator.serviceWorker.register('/sw.js') 
+
+`navigator.serviceWorker.register('/sw.js')` 
 
 
 ### CASHE API
