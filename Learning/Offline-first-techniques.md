@@ -15,7 +15,7 @@ This document was written using Markdown, for help on writing in Markdown, [visi
 
 Run npm install to install all dependencies the application requires.
 
-Use npm run serve to kickoff the build scripts and launch a server that hosts the application at http://localhost:8888
+Use npm run serve to kickoff the build scripts and launch a server that hosts the application at `http://localhost:8888`
 
 
 
@@ -46,7 +46,7 @@ AJAX allows you to make a request for data without the need to pause everything 
 
 Just like how the document is provided by the JavaScript engine, the JavaScript engine also provides a way for us to make asynchronous HTTP requests. We do that with an XMLHttpRequest object. We can create these objects with the provided XMLHttpRequest constructor function.
 
-One of the best ways to learn is to get your hands dirty and try things out! So go to Unsplash(https://unsplash.com/), open up the developer tools, and run the following on the console:
+One of the best ways to learn is to get your hands dirty and try things out! So go to [Unsplash](https://unsplash.com/), open up the developer tools, and run the following on the console:
 
 `const asyncRequestObject = new XMLHttpRequest();`
 
@@ -70,4 +70,5 @@ A little rusty on your HTTP methods?
 The main two that you'll be using are:
 
 > GET - to retrieve data
+
 > POST- to send data
