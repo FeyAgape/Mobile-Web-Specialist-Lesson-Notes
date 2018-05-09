@@ -45,7 +45,7 @@ a cache box contains (request and response pairs) from any secure origin
 
 
 
-### AJAX( or otherwise known as Asynchronous Javascript and XML, however its now know has the concept of asynchronously requesting data) with XHR
+## AJAX( or otherwise known as Asynchronous Javascript and XML, however its now know has the concept of asynchronously requesting data) with XHR
 
 AJAX allows you to make a request for data without the need to pause everything to wait for the request to return. it allows you to move on and do something else, and once the request returns you deal with it. 
 
@@ -95,13 +95,17 @@ nothing happens because the XHR's .open() method does not actually send the requ
 
 ### For Example:2 
 
-or if you go on udacity open up the developer tools, and run the following on the console:
+or if you go on udacity,s open up the developer tools, and run the following on the console:
 
 `const myAsyncRequest = new XMLHttpRequest();
 myAsyncRequest.open('GET', 'https://udacity.com/', false);`
 
 Passing false as the third option makes the XHR request become a synchronous one. This will cause the JavaScript engine to pause and wait until the request is returned before continuing - this "pause and wait" is also called "blocking". This is a terrible idea and completely defeats the purpose for having an asynchronous behavior. Make sure you never set your XHR objects this way! Instead, either pass true as the 3rd argument or leave it blank (which makes it default to true).'
 
-### To actually send the request, we need to use the send method:
+### To actually send the request, we need to use the send method: `asyncRequestObject.send();`
+
+`const asyncRequestObject = new XMLHttpRequest();`
+
+`asyncRequestObject.open('GET', 'https://unsplash.com');`
 
 `asyncRequestObject.send();`
