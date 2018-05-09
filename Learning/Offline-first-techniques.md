@@ -30,7 +30,8 @@ navigator.serviceWorker.register('/sw.js')
 
 If you want to load content .i.e html, css, assets and js without using the network, we need somewhere to store the html, css, js and assets, using the CASCHE API
 
-to open or create a cache 
+to open or create a cache
+
 `caches.open('my-stuff').then(function(cache) {
 	// body...
 	//this returns a promise for a cache with that name or it creates one if their isn't a chache with that name and opens it
