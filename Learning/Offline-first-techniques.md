@@ -13,9 +13,9 @@ This document was written using Markdown, for help on writing in Markdown, [visi
 ## To run your project on the server
 
 
-Run npm install to install all dependencies the application requires.
+Run `npm install` to install all dependencies the application requires.
 
-Use npm run serve to kickoff the build scripts and launch a server that hosts the application at `http://localhost:8888`
+Use `npm run serve` to kickoff the build scripts and launch a server that hosts the application at `http://localhost:8888`
 
 
 
