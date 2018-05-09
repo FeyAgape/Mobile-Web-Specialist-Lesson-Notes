@@ -66,7 +66,7 @@ If we want to asynchronously request the homepage from the popular high-res imag
 `const asyncRequestObject = new XMLHttpRequest();`
 `asyncRequestObject.open('GET', 'https://unsplash.com');`
 
-A little rusty on your HTTP methods?
+**A little rusty on your HTTP methods?**
 The main two that you'll be using are:
 
 > GET - to retrieve data
