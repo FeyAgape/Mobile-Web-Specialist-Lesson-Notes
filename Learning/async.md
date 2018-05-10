@@ -61,3 +61,23 @@ We can chain on to `.ajax()` with a `.done()` method. We pass the .done() method
 `$.ajax({
     url: 'https://swapi.co/api/people/1/'
 }).done(handleResponse);`	
+
+### Client ID header
+
+A header is added to the request by passing a headers object as a property. Each key in the headers object is the name of the header, and the value is what will be used as the value for the header.
+
+**Example1** 
+```$.ajax({`
+        	`url:` `https://api.unsplash.com/search/photos?page=1&query=${searchedForText}`,
+        	`headers: {`
+        		`Authorization:` `Client-ID faa6734d78701fc28e60f034c34fe2e3ec655c16e50dfc8a0b77c2bd3eb34f6e`
+        	`}`
+       `}).done(addImage);```
+
+
+And Api key is added with
+
+```$.ajax({`
+        	url: `http://api.nytimes.com/svc/search/v2/articlesearch.json?q=${searchedForText}&api-key=f1c69a7b01c34968b7e4da055884e63b`
+        }).done(addArticles);```
+
