@@ -81,3 +81,23 @@ And Api key is added with
         	url: `http://api.nytimes.com/svc/search/v2/articlesearch.json?q=${searchedForText}&api-key=f1c69a7b01c34968b7e4da055884e63b`
         }).done(addArticles);```
 
+Using jQuery's `.ajax()` method, there's less setup code that you need to manage. That's good, but to use jQuery we also have to include the entire library and force our users to download the entire thing every time.
+
+## jQuery
+
+jQuery has a number of other methods that can be used to make asynchronous calls. These methods are:
+
+`.get()`
+
+`.getJSON()`
+
+`.getScript()`
+
+`.post()`
+
+`.load()`
+
+Each one of these functions in turn calls jQuery's main `.ajax()` method. These are called *"convenience methods"* because they provide a convenient interface and do some default configuration of the request before calling `.ajax().`
+
+Let's look at the `.get()` and `.post()` methods to see how they just call `.ajax()` under the hood.
+
