@@ -50,3 +50,14 @@ jQuery's .ajax() method has to be incredibly versatile and powerful if it's what
 `$.ajax({
     url: 'https://swapi.co/api/people/1/'
 });`
+
+We can chain on to `.ajax()` with a `.done()` method. We pass the .done() method a function that will run with the Ajax call is done!
+
+	`function handleResponse(data) {
+    console.log('the ajax request has finished!');
+    console.log(data);
+`}`	
+
+`$.ajax({
+    url: 'https://swapi.co/api/people/1/'
+}).done(handleResponse);`	
