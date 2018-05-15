@@ -59,3 +59,55 @@ requestHeaders.append('Authorization', 'Client-ID abc123');
 fetch(https://api.unsplash.com/search/photos?page=1&query=${searchedForText}, { 
      headers: requestHeaders 
 });``
+
+The GET HTTP method is used for a Fetch request.
+
+### Changing The HTTP Method
+
+So the default HTTP method for a Fetch request is the GET method. We can choose a different HTTP method by passing a method property in the configuration object:
+
+``fetch(`https://api.unsplash.com/search/photos?page=1&query=${searchedForText}`, {
+    method: 'POST'
+});``
+
+This will send the request with the POST HTTP header.
+
+Fetch's specification does not limit what HTTP methods can be used, although it does recommend that all methods are written in uppercase for consistency with the HTTP Verbs specification.
+
+## 💡 Javascript Promises Reminder 💡
+
+Dealing with the returned data from a Fetch request is all done with Promises, so if any of this looks confusing or you don't know how `.then()` works or why it's needed, check out our course on [JavaScript Promises](https://www.udacity.com/course/javascript-promises--ud898).
+
+Since a Fetch request returns a Promise, then all you have to do is call .then() on that Promise.
+
+
+**`.blob().`**should be used if you want to fetch an image
+
+ .blob() will extract the image body from the response.
+
+
+## ES6 arrow function
+
+One quick way to shrink the amount of code is to use an ES6 Arrow function! We can convert the first .then() function that gets the response, calls the .json() method on it, and returns a Promise all to a single line with an Arrow function:
+
+``// without the arrow function
+}).then(function(response) {
+    return response.json();
+})``
+
+``// using the arrow function
+}).then(response => response.json())``
+
+
+So the new request would be:
+
+``fetch(`https://api.unsplash.com/search/photos?page=1&query=${searchedForText}`, {
+    headers: {
+        Authorization: 'Client-ID abc123'
+    }
+}).then(response => response.json())
+.then(addImage);``
+
+``function addImage(data) {
+    debugger;
+}``
