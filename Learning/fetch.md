@@ -42,3 +42,20 @@ Have a look at the following code:
   .then(function(myJson) {
     console.log(myJson);
   });``
+
+
+The Fetch request takes the URL to the requested resource as the first argument, but the second argument is a configuration object. One of the options to this config object is a headers property.
+
+One of the new additions that rode along on the coattails of Fetch is a new Headers constructor function. The headers property of a Fetch request's configuration object can either be a plain object of headers to include, or it can be a Headers object that's been built up with headers.
+
+``fetch(https://api.unsplash.com/search/photos?page=1&query=${searchedForText}, { 
+     headers: { 
+         Authorization: 'Client-ID abc123' 
+    } 
+});``
+
+``const requestHeaders = new Headers(); 
+requestHeaders.append('Authorization', 'Client-ID abc123'); 
+fetch(https://api.unsplash.com/search/photos?page=1&query=${searchedForText}, { 
+     headers: requestHeaders 
+});``
