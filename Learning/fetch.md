@@ -13,3 +13,32 @@ As mentioned above, the new Fetch API utilizes Promises under the hood. If you'v
 Check out [http://caniuse.com/#feat=fetch](http://caniuse.com/#feat=fetch) to see if your browser supports this awesome new API!
 
 If your browser is not supported, just add [this polyfill](https://github.com/github/fetch) to your project, so you can start using Fetch even without your browser supporting it!
+
+
+## A sample fetch request
+
+`fetch('<URL-to-the-resource-that-is-being-requested>');`
+
+
+So yeah...that's it. In it's smallest form, a Fetch request is just the `fetch()` function and a string to the resource that's being requested. It's just so short and easy to read.
+
+**&Let's take a peek at what a real request looks like:**
+
+Making  a fetch request for an image from Unsplash.
+
+`fetch('https://api.unsplash.com/search/photos?page=1&query=flowers');`
+If you try running this Fetch request on the console, then you should get a Promise returned to you.
+
+Just because Fetch is new and awesome and is replacing the XHR object for making asynchronous network requests doesn't mean it can bypass the rules for making those network requests. **Fetch requests still need to obey the cross-origin protocol of how resources are shared.** This means that, by default, you can only make requests for assets and data on the same domain as the site that will end up loading the data. 
+**Remember that Unsplash requires an Authorization header to make a request through its API.**
+
+### A basic fetch request is really simple to set up. 
+Have a look at the following code:
+
+``fetch('http://example.com/movies.json')
+  .then(function(response) {
+    return response.json();
+  })
+  .then(function(myJson) {
+    console.log(myJson);
+  });``
