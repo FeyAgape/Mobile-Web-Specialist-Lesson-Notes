@@ -78,16 +78,16 @@ Next, we’ll have to create a file structure and a gulpfile.js file to store al
 
 Create the structure of your app: (here is a generic webapp structure)
 
-`  |- app/
-      |- css/
-      |- fonts/
-      |- images/ 
-      |- index.html
-      |- js/ 
-      |- scss/
+  |- app/
+  |- app/|- css/
+  |- app/|- fonts/
+  |- app/|- images/ 
+  |- app/|- index.html
+  |- app/|- js/ 
+  |- app/|- scss/
   |- dist/
   |- gulpfile.js
   |- node_modules/
-  |- package.json`
+  |- package.json
 
 In this structure, the app folder will store all our written code, and the dist folder will be used to store code that’s production-ready.
