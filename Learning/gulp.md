@@ -32,3 +32,62 @@ Mac users need the extra sudo keyword in the command because they need administr
 
 First, we'll create a folder called **project** or whatever you want to name your project. Then run the npm init command from inside that directory:
 ` npm init`
+
+npm init will prompt you: to enter the project name, version, description, etc
+
+**Example** 
+
+`package.json:`
+
+`{
+  "name": "project",
+  "version": "1.0.0",
+  "description": "This is a gulp project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Username/Project.git"
+  },
+  "author": "First-name Last-name",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Username/Project/issues"
+  },
+  "homepage": "https://github.com/Username/Project#readme"
+}`
+
+
+### Step 1
+
+The first dependency in our project is Gulp since we’re using it as our build tool. You’ll have to install gulp within the project folder by augmenting the install code slightly:
+
+`npm install gulp --save-dev`
+
+This time, we're installing Gulp into project instead of installing it globally, which is why there are some differences in the command.
+
+You'll see that the sudo keyword isn't required because we're not installing Gulp globally, so -g is also not necessary. We've added --save-dev, which tells the computer to add gulp as a dev dependency in package.json
+
+**If you check the project folder when the command has finished executing, you should see that Gulp has created a node_modules folder. You should also see a gulp folder within node_modules.**
+
+### Step 2
+
+Next, we’ll have to create a file structure and a gulpfile.js file to store all our Gulp configurations.
+
+Create the structure of your app: (here is a generic webapp structure)
+
+  |- app/
+      |- css/
+      |- fonts/
+      |- images/ 
+      |- index.html
+      |- js/ 
+      |- scss/
+  |- dist/
+  |- gulpfile.js
+  |- node_modules/
+  |- package.json
+
+In this structure, the app folder will store all our written code, and the dist folder will be used to store code that’s production-ready.
