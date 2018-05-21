@@ -312,9 +312,9 @@ Thankfully, there's a useful Gulp plugin, `gulp-useref` that solves this problem
 
 `Gulp-useref` concatenates any number of CSS and JavaScript files into a single file by looking for a comment that starts with "`<!--build:" and ends with "<!--endbuild-->`". Its syntax is:
 
-`<!-- build:<type> <path> -->
-... HTML Markup, list of script / link tags.
-<!-- endbuild -->`
+`<!-- build:<type> <path> -->`
+`... HTML Markup, list of script / link tags.`
+`<!-- endbuild -->`
 
 `<type>` can either be js, css, or remove. It's best to set type to the type of file that you're trying to concatenate. If you set type to remove, Gulp will remove the entire build block without generating a file.
 
@@ -368,10 +368,10 @@ One neat thing I've yet to reveal with Gulp-useref is that it automatically chan
 
 We can use the same method to concatenate any CSS files (if you decided to add more than one) as well. We'll follow the same process and add a build comment.
 
-``<!--build:css css/styles.min.css-->
-<link rel="stylesheet" href="css/styles.css">
-<link rel="stylesheet" href="css/another-stylesheet.css">
-<!--endbuild-->``
+`<!--build:css css/styles.min.css-->`
+`<link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="css/another-stylesheet.css">`
+`<!--endbuild-->`
 
 **We can also minify the concatenated CSS file as well. We need to use a package called gulp-cssnano plugin to help us with minification.**
 
@@ -380,7 +380,8 @@ We can use the same method to concatenate any CSS files (if you decided to add m
 
 `var cssnano = require('gulp-cssnano');`
 
-``gulp.task('useref', function(){
+``
+gulp.task('useref', function(){
   return gulp.src('app/*.html')
     .pipe(useref())
     .pipe(gulpIf('*.js', uglify()))
