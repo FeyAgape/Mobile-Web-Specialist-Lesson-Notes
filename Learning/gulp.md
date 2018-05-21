@@ -369,8 +369,8 @@ One neat thing I've yet to reveal with Gulp-useref is that it automatically chan
 We can use the same method to concatenate any CSS files (if you decided to add more than one) as well. We'll follow the same process and add a build comment.
 
 `<!--build:css css/styles.min.css-->`
-`<link rel="stylesheet" href="css/styles.css">
-<link rel="stylesheet" href="css/another-stylesheet.css">`
+`<link rel="stylesheet" href="css/styles.css">`
+`<link rel="stylesheet" href="css/another-stylesheet.css">`
 `<!--endbuild-->`
 
 **We can also minify the concatenated CSS file as well. We need to use a package called gulp-cssnano plugin to help us with minification.**
@@ -392,7 +392,7 @@ gulp.task('useref', function(){
 
 Now you'd get one optimized CSS file and one optimized JavaScript file whenever you run the `useref` task.
 
-# Gulpfile.js using gulp, sass, browser-sync, useref, uglify, if, caanano, imagemin, cache, del and run-sequence 
+# Gulpfile.js file example using gulp, sass, browser-sync, useref, uglify, if, cssnano, imagemin, cache, del and run-sequence 
 
 ```
 var gulp = require('gulp');
