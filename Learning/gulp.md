@@ -365,3 +365,28 @@ var gulpIf = require('gulp-if');`
 Gulp should now automatically minify the `main.min.js` file whenever you run the useref task.
 
 One neat thing I've yet to reveal with Gulp-useref is that it automatically changes all the scripts within `"<!--build:" and "<!--endbuild-->"` into one single JavaScript file that points to `js/main.min.js`.
+
+We can use the same method to concatenate any CSS files (if you decided to add more than one) as well. We'll follow the same process and add a build comment.
+
+`<!--build:css css/styles.min.css-->
+<link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="css/another-stylesheet.css">
+<!--endbuild-->`
+
+**We can also minify the concatenated CSS file as well. We need to use a package called gulp-cssnano plugin to help us with minification.**
+
+`npm install gulp-cssnano`
+
+
+`var cssnano = require('gulp-cssnano');`
+
+`gulp.task('useref', function(){
+  return gulp.src('app/*.html')
+    .pipe(useref())
+    .pipe(gulpIf('*.js', uglify()))
+    // Minifies only if it's a CSS file
+    .pipe(gulpIf('*.css', cssnano()))
+    .pipe(gulp.dest('dist'))
+});`
+
+Now you'd get one optimized CSS file and one optimized JavaScript file whenever you run the `useref` task.
