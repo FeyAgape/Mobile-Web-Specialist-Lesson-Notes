@@ -51,3 +51,7 @@ Create a browser-sync object and initialize the server.
  browserSync.stream();``
  
 Run gulp in Terminal, see how browser opens with the page open.
+
+## How to prevent disasters
+
+### Linting: is a way to automatically check your Js code for errors
