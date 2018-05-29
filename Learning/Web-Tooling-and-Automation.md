@@ -54,4 +54,4 @@ Run gulp in Terminal, see how browser opens with the page open.
 
 ## How to prevent disasters
 
-### Linting: is a way to automatically check your Js code for errors
+### Linting: is a way to automatically check your Js code for errors and can+ be done at various stages
