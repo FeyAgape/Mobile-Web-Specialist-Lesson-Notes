@@ -600,8 +600,172 @@ The best practices for organizing files, notice how the file structure makes it 
 
 ![image](https://github.com/FeyAgape/Assets/blob/master/sass_structure.jpg?raw=1)
 
+### @Import in SCSS
 
-### Sass: Overview
+In addition to having a solid file structure, a big part of staying organized is splitting up the logic into smaller manageable components.
+
+Sass extends the existing CSS @import rule to allow including other SCSS and Sass files. Typically, all imported SCSS files are imported into a main SCSS file which is then combined to make a single CSS output file.
+The main/global SCSS file has access to any variables or mixins defined in its imported files. The `@import` command takes a filename to import. By default, @import looks for a Sass file in the same or otherwise specified directory but there are a few circumstances where it will behave just like a CSS @import rule:
+
+1. If the file’s extension is .css.
+2. If the filename begins with http://.
+3. If the filename is a url().
+4. If the @import has any media queries.
+
+In addition to keeping code organized, importing files can also save you from repeating code. For example, if multiple SCSS files reference the same variables, importing a file with variables partial would save the trouble of redefining them each time.
+
+
+### Organize with Partials
+
+Partials in Sass are the files you split up to organize specific functionality in the codebase.
+
+They use a _ prefix notation in the file name that tells Sass to hold off on compiling the file individually and instead import it. `_filename.scss`
+To import this partial into the main file - or the file that encapsulates the important rules and the bulk of the project styles - omit the underscore.
+For example, to import a file named `_variables.scss`, add the following line of code:
+
+`@import "variables";`
+
+The global file imports all the components and centralizes the logic.
+
+example using the default file structure above
+`
+//in your main.scss
+@import url(https://fonts.googleapis.com/css?family=Pacifico); //CSS import
+@import "helpers/functions";
+@import "helpers/variables";`
+
+### @Extend
+
+Many times, when styling elements, we want the styles of one class to be applied to another in addition to its own individual styles, so the traditional approach is to give the element both classes.
+
+`<span class="lemonade"></span>`
+
+`<span class="lemonade strawberry"></span>`
+
+This is a potential bug in maintainability because then both classes always have to be included in the HTML in order for the styles to be applied. Enter Sass's @extend. All we have to do is make our strawberry class extend .lemonade and we will no longer have this dilemma.
+
+`.lemonade {
+  border: 1px yellow;
+  background-color: #fdd;
+}`
+
+`.strawberry {
+  @extend .lemonade;
+  border-color: pink;
+}`
+
+
+If you observe CSS output, you can see how @extend is working to apply the .lemonade rules to .strawberry:
+
+`.lemonade, .strawberry {
+  border: 1px yellow;
+  background-color: #fdd;
+}`
+
+`.strawberry {
+  @extend .lemonade;
+  border-color: pink;
+}`
+
+If we think of .lemonade as the extendee, and of .strawberry as the extender, we can then think of Sass appending the extender selector to the rule declarations in the extendee definition. This makes it easy to maintain HTML code by removing the need to have multiple classes on an element.
+
+### %Placeholders
+
+Sometimes, you may create classes solely for the purpose of extending them and never actually use them inside your HTML. Sass anticipated this and allows for a special type of selector called a placeholder, which behaves just like a class or id selector, but use the % notation instead of # or .
+
+Placeholders prevent rules from being rendered to CSS on their own and only become active once they are extended anywhere an id or class could be extended.
+
+`a%drink {
+    font-size: 2em;
+    background-color: $lemon-yellow;
+ }`
+
+`.lemonade {
+  @extend %drink;
+  //more rules
+ }`
+
+would translate to
+
+`a.lemonade {
+    font-size: 2em;
+    background-color: $lemon-yellow;
+ }`
+
+`lemonade {
+  //more rules
+}`
+Placeholders are a nice way to consolidate rules that never actually get used on their own in the HTML.
+
+### @Extend vs @Mixin
+
+Mixins, unlike extended selectors, insert the code inside the selector's rules wherever they are included, only including "original" code if they are assigning a new value to the rule's properties via an argument.
+
+Let's look at the @mixin and @extend constructs closely and compare output:
+
+`//main.scss
+@mixin no-variable {
+  font-size: 12px;
+  color: #FFF;
+  opacity: .9;
+}`
+
+`%placeholder {
+  font-size: 12px;
+  color: #FFF;
+  opacity: .9;
+}`
+
+`span {
+  @extend %placeholder;
+}`
+
+`div {
+  @extend %placeholder;
+}`
+
+`p {
+  @include no-variable;
+}`
+
+`h1 {
+  @include no-variable;
+}`
+
+would compile to:
+
+`//css
+span, div{
+  font-size: 12px;
+  color: #FFF;
+  opacity: .9;
+}`
+
+`p {
+  font-size: 12px;
+  color: #FFF;
+  opacity: .9;
+  //rules specific to ps
+}`
+
+`h1 {
+  font-size: 12px;
+  color: #FFF;
+  opacity: .9;
+  //rules specific to ps
+}`
+
+
+We can clearly see extending results in way cleaner and more efficient output with as little repetition as possible.
+
+As a general rule of thumb, you should:
+
+1. Try to only create mixins that take in an argument, otherwise you should extend.
+
+2. Always look at your CSS output to make sure your extend is behaving as you intended.
+
+
+# Sass: Overview
 Sass has many perks that enable us to write succinct, readable code.
 
 1. Nesting is the process of placing child selectors and properties in the scope of a parent selector. This allows a programmer to draw DOM relationships and avoid repetition.
@@ -632,6 +796,11 @@ Nesting and variables are just two ways that Sass keeps stylesheets clean. In th
 
 There are other native Sass functions available to use, and you can even make your own custom functions if you have a good foundation in Ruby, check out more information [here](https://sass-lang.com/documentation/Sass/Script/Functions.html).
 
+10. Sustainability is key in Sass, planning out the structure of your files and sticking to naming conventions for both variables, mixins, and selectors can reduce complexity.
+
+11. Understanding CSS output is also essential to writing sustainable SCSS. In order to make the best choices about what functions and directives to use, it is important to first understand how this will translate in CSS.
+
+12. Mixins should only be used if they take in an argument, otherwise, you should extend the selector's rules, whether it be a class, id, or placeholder.
 
 
 
