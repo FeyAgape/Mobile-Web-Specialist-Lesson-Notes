@@ -598,9 +598,6 @@ The mixin above is a good example for how we would want to handle the coloring o
 
 ![image](https://github.com/FeyAgape/Assets/blob/master/sass_structure.jpg?raw=1)
 
-<img src="https://github.com/FeyAgape/Assets/blob/master/sass_structure.jpg?raw=1"
-     alt="Sass file structure"
-     style="float: left; margin-top: 10px;" />
 
 ### Sass: Overview
 Sass has many perks that enable us to write succinct, readable code.
