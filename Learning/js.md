@@ -31,7 +31,7 @@ The answer in the example above will most likely be a decimal. To ensure the ans
 `console.log(Math.floor(Math.random() * 50));`
 **In this case:** Math.random generates a random number between 0 and 1. We then multiply that number by 50, so now we have a number between 0 and 50. Then, Math.floor rounds the number down to the nearest whole number.
 
-example
+**example**
 
 `console.log(Math.random() * 100); //returns a random decimal number 51.9140453742521` 
 
@@ -40,3 +40,14 @@ example
 `console.log(Math.ceil(43.8)); // returns 44 Math.ceil() returns the smallest integer greater than or equal to a decimal number `
 
 `console.log(Number.isInteger(2017)); returns true //Number.isInteger() checks if a number is an integer`
+
+# Review Types and Operators
+
+1. Four essential data types in JavaScript include strings, numbers, booleans, and null.
+2. Data is printed, or logged, to the console with `console.log()`.
+3. Four built-in mathematical operators include `+, -, *, and /`.
+4. JavaScript associates certain properties with different data types.
+5. JavaScript has built-in methods for different data types.
+6. Libraries are collections of methods that can be called without an instance.
+7. You can write single-line comments with `//` and multi-line comments between `/* and */`.
+
