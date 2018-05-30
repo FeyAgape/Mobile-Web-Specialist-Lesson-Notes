@@ -594,7 +594,9 @@ For cases with more than two outcomes, the @if, @else-if, and @else directives a
 The mixin above is a good example for how we would want to handle the coloring of a deck of cards based on a suit condition.
 
 
-##Sass file structure
+## Sass file structure
+
+The best practices for organizing files, notice how the file structure makes it easy to think of the functionality of each component, facilitating the action of finding and updating files.
 
 ![image](https://github.com/FeyAgape/Assets/blob/master/sass_structure.jpg?raw=1)
 
