@@ -594,6 +594,10 @@ For cases with more than two outcomes, the @if, @else-if, and @else directives a
 The mixin above is a good example for how we would want to handle the coloring of a deck of cards based on a suit condition.
 
 
+##Sass file structure
+
+[image](https://github.com/FeyAgape/Assets/blob/master/sass_structure.jpg?raw=1)
+
 ### Sass: Overview
 Sass has many perks that enable us to write succinct, readable code.
 
@@ -624,4 +628,7 @@ Nesting and variables are just two ways that Sass keeps stylesheets clean. In th
 9. The introduction of conditional statements allows you to create logic-based styling rules using SCSS.
 
 There are other native Sass functions available to use, and you can even make your own custom functions if you have a good foundation in Ruby, check out more information [here](https://sass-lang.com/documentation/Sass/Script/Functions.html).
+
+
+
 
