@@ -41,6 +41,11 @@ The answer in the example above will most likely be a decimal. To ensure the ans
 
 `console.log(Number.isInteger(2017)); returns true //Number.isInteger() checks if a number is an integer`
 
+
+## Variables
+
+P
+
 # Review Types and Operators
 
 1. Four essential data types in JavaScript include strings, numbers, booleans, and null.
