@@ -214,3 +214,24 @@ const kitty = (
 ReactDOM.render(kitty, 
                 document.getElementById('app')
                );`
+
+
+## JSX Conditionals: If Statements That Don't Work
+Here's a rule that you need to know: you can not inject an if statement into a JSX expression.
+
+This code will break:
+
+`(
+  <h1>
+    {
+      if (purchase.complete) {
+        'Thank you for placing an order!'
+      }
+    }
+  </h1>
+)`
+
+The reason why has to do with the way that JSX is compiled. You don't need to understand the mechanics of it for now, but if you're interested then you can learn more at [https://reactjs.org/docs/jsx-in-depth.html](https://reactjs.org/docs/jsx-in-depth.html).
+
+What if you want a JSX expression to render, but only under certain circumstances? You can't inject an if statement. What can you do?
+
