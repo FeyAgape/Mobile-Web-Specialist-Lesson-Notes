@@ -285,7 +285,7 @@ Here's how you might use the ternary operator in a JSX expression:
 
 In the above example, if age is greater than or equal to drinkingAge, then headline will equal <h1>Buy Drink</h1>. Otherwise, headline will equal <h1>Do Teen Stuff</h1>.
 
-### examples
+### example
 `function coinToss () {
   // Randomly return either 'heads' or 'tails'.
   return Math.random() < 0.5 ? 'heads' : 'tails';
@@ -300,18 +300,17 @@ ReactDOM.render(
   document.getElementById('app')
 );`
 
-JSX Conditionals: &&
-We're going to cover one final way of writing conditionals in React: the && operator.
+
+## JSX Conditionals: &&
+One final way of writing conditionals in React is: the && operator.
 
 Like the ternary operator, && is not React-specific, but it shows up in React surprisingly often.
-
-In the last two lessons, you wrote statements that would sometimes render a kitty and other times render a doggy. && would not have been the best choice for those lessons.
 
 && works best in conditionals that will sometimes do an action, but other times do nothing at all.
 
 Here's an example:
 
-const tasty = (
+`const tasty = (
   <ul>
     <li>Applesauce</li>
     { !baby && <li>Pizza</li> }
@@ -319,5 +318,8 @@ const tasty = (
     { age > 20 && <li>Oysters</li> }
     { age > 25 && <li>Grappa</li> }
   </ul>
-);
+);`
+
 Every time that you see && in this example, either some code will run, or else no code will run.
+
+### example
