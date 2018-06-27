@@ -1,7 +1,7 @@
 # ReactJs
 
-## INTRO TO JSX
 
+## INTRO TO JSX
 JSX Elements And Their Surroundings
 JSX elements are treated as JavaScript expressions. They can go anywhere that JavaScript expressions can go.
 
@@ -20,6 +20,7 @@ That means that a JSX element can be saved in a variable, passed to a function, 
   shootingGuard: <li>Colmar Cumberbatch</li>,
   pointGuard: <li>Femi Billon</li>
 };`
+
 
 ## Attributes In JSX
 JSX elements can have attributes, just like HTML elements can.
@@ -85,4 +86,28 @@ Nested JSX expressions can be saved as variables, passed to functions, etc., jus
    </div>
  );`
 
- 
+
+## JSX Outer Elements
+There's a rule that we haven't mentioned: a JSX expression must have exactly one outermost element.
+
+In other words, this code will work:
+
+`const paragraphs = (
+  <div id="i-am-the-outermost-element">
+    <p>I am a paragraph.</p>
+    <p>I, too, am a paragraph.</p>
+  </div>
+);`
+
+But this code will not work:
+
+`const paragraphs = (
+  <p>I am a paragraph.</p> 
+  <p>I, too, am a paragraph.</p>
+);`
+
+The first opening tag and the final closing tag of a JSX expression must belong to the same JSX element!
+
+It's easy to forget about this rule, and end up with errors that are tough to diagnose.
+
+If you notice that a JSX expression has multiple outer elements, the solution is usually simple: wrap the JSX expression in a `<div></div>`.
