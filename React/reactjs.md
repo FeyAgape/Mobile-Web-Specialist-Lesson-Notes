@@ -266,3 +266,58 @@ ReactDOM.render(
 it works, because the words if and else are not injected in between JSX tags. The if statement is on the outside, and no JavaScript injection is necessary.
 
 This is a common way to express conditionals in JSX.
+
+
+## JSX Conditionals: The Ternary Operator
+There's a more compact way to write conditionals in JSX: the ternary operator.
+
+The ternary operator works the same way in React as it does in regular JavaScript. However, it shows up in React surprisingly often.
+
+Recall how it works: you write x ? y : z, where x, y, and z are all JavaScript expressions. When your code is executed, x is evaluated as either "truthy" or "falsy." If x is truthy, then the entire ternary operator returns y. If x is falsy, then the entire ternary operator returns z. Here's a nice explanation if you need a refresher.
+
+Here's how you might use the ternary operator in a JSX expression:
+
+`const headline = (
+  <h1>
+    { age >= drinkingAge ? 'Buy Drink' : 'Do Teen Stuff' }
+  </h1>
+);`
+
+In the above example, if age is greater than or equal to drinkingAge, then headline will equal <h1>Buy Drink</h1>. Otherwise, headline will equal <h1>Do Teen Stuff</h1>.
+
+### examples
+`function coinToss () {
+  // Randomly return either 'heads' or 'tails'.
+  return Math.random() < 0.5 ? 'heads' : 'tails';
+}
+const pics = {
+  kitty: 'https://s3.amazonaws.com/codecademy-content/courses/React/react_photo-kitty.jpg',
+  doggy: 'https://s3.amazonaws.com/codecademy-content/courses/React/react_photo-puppy.jpeg'
+};
+const img = <img src={pics[coinToss() === 'heads' ? 'kitty' : 'doggy']} />;
+ReactDOM.render(
+  img, 
+  document.getElementById('app')
+);`
+
+JSX Conditionals: &&
+We're going to cover one final way of writing conditionals in React: the && operator.
+
+Like the ternary operator, && is not React-specific, but it shows up in React surprisingly often.
+
+In the last two lessons, you wrote statements that would sometimes render a kitty and other times render a doggy. && would not have been the best choice for those lessons.
+
+&& works best in conditionals that will sometimes do an action, but other times do nothing at all.
+
+Here's an example:
+
+const tasty = (
+  <ul>
+    <li>Applesauce</li>
+    { !baby && <li>Pizza</li> }
+    { age > 15 && <li>Brussels Sprouts</li> }
+    { age > 20 && <li>Oysters</li> }
+    { age > 25 && <li>Grappa</li> }
+  </ul>
+);
+Every time that you see && in this example, either some code will run, or else no code will run.
