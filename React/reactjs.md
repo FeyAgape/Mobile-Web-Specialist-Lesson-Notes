@@ -67,3 +67,35 @@ Any code in between the tags of a JSX element will be read as JSX, not as regula
 You need a way to write code that says, "Even though I am located in between JSX tags, treat me like ordinary JavaScript and not like JSX."
 
 You can do this by wrapping your code in curly braces `{}`.
+
+`ReactDOM.render(
+  <h1>{2 + 3}</h1>,
+  document.getElementById('app')
+);`
+
+
+## 20 Digits of Pi in JSX
+You can now inject regular JavaScript into JSX expressions! This will be extremely useful.
+
+In the code editor, you can see a JSX expression that displays the first twenty digits of pi.
+
+Study the expression and notice the following:
+
+The code is written in a JavaScript file. By default, it will all be treated as regular JavaScript.
+Find <div> on line 5. From there up through </div>, the code will be treated as JSX.
+Find Math. From there up through (20), the code will be treated as regular JavaScript again.
+The curly braces themselves won't be treated as JSX nor as JavaScript. They are markers that signal the beginning and end of a JavaScript injection into JSX, similar to the quotation marks that signal the boundaries of a string.
+
+`
+const math = (
+    <h1>
+   2 + 3 = {2 + 3}
+    </h1>
+);
+ReactDOM.render(
+  math,
+  document.getElementById('app')
+);
+`
+Displays 2 + 3 = 5
+
