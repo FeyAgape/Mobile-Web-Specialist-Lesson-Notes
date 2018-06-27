@@ -147,9 +147,8 @@ The ReactDOM's methods: `ReactDOM.render()`.
 
 
 ## ReactDOM.render() 2
-Move to the right a little more, and you will see this expression:
+`document.getElementById('app')`
 
-document.getElementById('app')
 You just learned that ReactDOM.render() makes its first argument appear onscreen. But where on the screen should that first argument appear?
 
 The first argument is appended to whatever element is selected by the second argument.
@@ -158,6 +157,26 @@ In the code editor, select index.html. See if you can find an element that would
 
 That element acted as a container for ReactDOM.render()'s first argument! At the end of the previous exercise, this appeared on the screen:
 
-<main id="app">
+`<main id="app">
   <h1>Render me!</h1>
-</main>
+</main>`
+
+
+## Passing a Variable to ReactDOM.render()
+ReactDOM.render()'s first argument should evaluate to a JSX expression, it doesn't have to literally be a JSX expression.
+
+The first argument could also be a variable, so long as that variable evaluates to a JSX expression.
+
+In this example, we save a JSX expression as a variable named toDoList. We then pass toDoList as the first argument to ReactDOM.render():
+
+``const toDoList = (
+  <ol>
+    <li>Learn React</li>
+    <li>Become a Developer</li>
+  </ol>
+);``
+
+``ReactDOM.render(
+  toDoList, 
+  document.getElementById('app')
+);``
