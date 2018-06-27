@@ -189,9 +189,28 @@ An event listener attribute's name should be something like `onClick` or `onMous
 
 An event listener attribute's value should be a function. The above example would only work if myFunc were a valid function that had been defined elsewhere:
 
-function myFunc() {
+`function myFunc() {
   alert('Make myFunc the pFunc... omg that was horrible i am so sorry');
-}
+}`
 
-<img onClick={myFunc} />
+`<img onClick={myFunc} />`
+
 Note that in HTML, event listener names are written in all lowercase, such as onclick or onmouseover. In JSX, event listener names are written in camelCase, such as onClick or onMouseOver.
+
+### example
+
+`function makeDoggy(e) {
+  // Call this extremely useful function on an <img>.
+  // The <img> will become a picture of a doggy.
+  e.target.setAttribute('src', 'https://s3.amazonaws.com/codecademy-content/courses/React/react_photo-puppy.jpeg');
+  e.target.setAttribute('alt', 'doggy');
+}
+const kitty = (
+  <img 
+    onClick={makeDoggy}
+    src="https://s3.amazonaws.com/codecademy-content/courses/React/react_photo-kitty.jpg" 
+    alt="kitty" />
+);
+ReactDOM.render(kitty, 
+                document.getElementById('app')
+               );`
