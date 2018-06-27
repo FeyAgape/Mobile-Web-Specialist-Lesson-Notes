@@ -121,7 +121,13 @@ To render a JSX expression means to make it appear onscreen.
 **Instructions**
 1. The following code will render a JSX expression:
 
-ReactDOM.render(<h1>Hello world</h1>, document.getElementById('app'));
-Starting on line 5, carefully copy the code into the code editor. We'll go over how it works in the next exercise.
+`ReactDOM.render(<h1>Hello world</h1>, 
+	document.getElementById('app'));`
 
 JavaScript is case-sensitive, so make sure to capitalize ReactDOM correctly!
+
+`
+import React from 'react';
+import ReactDOM from 'react-dom';
+// redering code here:
+ReactDOM.render(<h1>Hello world</h1>, document.getElementById('app'));`
