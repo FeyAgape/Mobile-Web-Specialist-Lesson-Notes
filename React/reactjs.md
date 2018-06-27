@@ -434,3 +434,11 @@ can be rewritten without JSX, like this:
 When a JSX element is compiled, the compiler transforms the JSX element into the method that you see above: `React.createElement()`. Every JSX element is secretly a call to `React.createElement()`.
 
 We won't go in-depth into how React.createElement() works, but you can start with the [documentation](http://facebook.github.io/react/docs/top-level-api.html#react.createelement) if you'd like to learn more!
+
+### example
+`const greatestDivEver = React.createElement();
+const greatestDivEver = React.createElement(
+  "div",
+  null,
+  "i am div"
+);`
