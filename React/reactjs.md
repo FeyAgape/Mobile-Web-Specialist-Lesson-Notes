@@ -111,3 +111,17 @@ The first opening tag and the final closing tag of a JSX expression must belong 
 It's easy to forget about this rule, and end up with errors that are tough to diagnose.
 
 If you notice that a JSX expression has multiple outer elements, the solution is usually simple: wrap the JSX expression in a `<div></div>`.
+
+
+## Rendering JSX
+You've learned how to write JSX elements! Now it's time to learn how to render them.
+
+To render a JSX expression means to make it appear onscreen.
+
+**Instructions**
+1. The following code will render a JSX expression:
+
+ReactDOM.render(<h1>Hello world</h1>, document.getElementById('app'));
+Starting on line 5, carefully copy the code into the code editor. We'll go over how it works in the next exercise.
+
+JavaScript is case-sensitive, so make sure to capitalize ReactDOM correctly!
