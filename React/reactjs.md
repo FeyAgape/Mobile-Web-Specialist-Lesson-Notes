@@ -235,3 +235,34 @@ The reason why has to do with the way that JSX is compiled. You don't need to un
 
 What if you want a JSX expression to render, but only under certain circumstances? You can't inject an if statement. What can you do?
 
+Well, one option is to write an if statement, and not inject it into JSX.
+
+`
+//app.js
+import React from 'react';
+import ReactDOM from 'react-dom';
+function coinToss() {
+  // This function will randomly return either 'heads' or 'tails'.
+  return Math.random() < 0.5 ? 'heads' : 'tails';
+}
+const pics = {
+  kitty: 'https://s3.amazonaws.com/codecademy-content/courses/React/react_photo-kitty.jpg',
+  doggy: 'https://s3.amazonaws.com/codecademy-content/courses/React/react_photo-puppy.jpeg'
+};
+let img;
+// if/else statement begins here:
+if (coinToss() === 'heads') {
+  img = <img src={pics.kitty} />
+  );
+} else {
+ img = <img src={pics.doggy} />
+  );
+}
+ReactDOM.render(
+  img, 
+  document.getElementById('app')
+);`
+
+it works, because the words if and else are not injected in between JSX tags. The if statement is on the outside, and no JavaScript injection is necessary.
+
+This is a common way to express conditionals in JSX.
