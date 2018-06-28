@@ -294,7 +294,5 @@ You've defined a new method on the Talker component class
 ## Pass an Event Handler as a prop
 You've defined a new method on the Talker component class. Now you're ready to pass that function to another component. You can pass a method in the exact same way that you pass any other information. Behold, the mighty JavaScript.
 
+**In order to pass an event handler function as a prop, you have to define an event handler before you can pass one anywhere.** 
 
-
-
-** In order to pass an event handler function as a prop, you have to define an event handler before you can pass one anywhere.** 
