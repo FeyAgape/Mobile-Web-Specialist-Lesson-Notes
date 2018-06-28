@@ -195,7 +195,7 @@ ReactDOM.render(
 );`
 
 
-## Use this in a Component
+## Using `this` in a Component
 The word `this` gets used in React a lot! You are especially likely to see this inside of the body of a component class declaration. Here's an example:
 
 `class IceCreamGuy extends React.Component {
@@ -216,3 +216,30 @@ Why don't you need parentheses after this.food? Shouldn't it be this.food()?
 You don't need those parentheses because .food is a getter method. You can tell this from the get in the above class declaration body. There's nothing React-specific about getter methods, nor about this behaving in this way! However, in React you will see this used in this way almost constantly.
 
 `this` in JavaScript can be a difficult concept! A good resource for understanding this in JavaScript is [here](https://dmitripavlutin.com/gentle-explanation-of-this-in-javascript/).
+
+
+## Using an Event Listener in a Component
+Render functions often contain event listeners. Here's an example of an event listener in a render function:
+
+`render() {
+  return (
+    <div onHover={myFunc}>
+    </div>
+  );
+}`
+
+Recall that an event handler is a function that gets called in response to an event. In the above example, the event handler is myFunc(). In React, you define event handlers as methods on a component class. Like this:
+
+`class MyClass extends React.Component {
+  myFunc() {
+    alert('Stop it.  Stop hovering.');
+  }
+  render() {
+    return (
+      <div onHover={this.myFunc}>
+      </div>
+    );
+  }
+}`
+
+Notice that the component class has two methods: .myFunc() and .render(). .myFunc() is being used as an event handler. .myFunc() will be called any time that a user hovers over the rendered <div></div>.
