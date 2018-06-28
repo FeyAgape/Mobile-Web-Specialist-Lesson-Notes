@@ -296,3 +296,133 @@ You've defined a new method on the Talker component class. Now you're ready to p
 
 **In order to pass an event handler function as a prop, you have to define an event handler before you can pass one anywhere.** 
 
+`//Talker.js
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { Button } from './Button';
+class Talker extends React.Component {
+  talk() {
+    let speech = '';
+    for (let i = 0; i < 10000; i++) {
+      speech += 'blah ';
+    }
+    alert(speech);
+  }
+  render() {
+    return <Button talk={this.talk} />;
+  }
+}
+ReactDOM.render(
+  <Talker />,
+  document.getElementById('app')
+);`
+You just passed a function from <Talker /> to <Button />.
+
+
+## Receiving an Event Handler as a prop
+In Button.js. Notice that Button renders a <button></button> element. If a user clicks on this <button></button> element, then you want your passed-in talk function to get called. That means that you need to attach talk to the <button></button> as an event handler.
+
+How do you do that? The same way that you attach any event handler to a JSX element: you give that JSX element a special attribute. The attribute's name should be something like onClick or onHover. The attribute's value should be the event handler that you want to attach.
+
+`//Button.js
+import React from 'react';
+export class Button extends React.Component {
+  render() {
+    return (
+      <button onClick={this.props.talk}>
+        Click me!
+      </button>
+    );
+  }
+}`
+
+
+## handleEvent, onEvent, and this.props.onEvent
+Let's talk about naming things. When you pass an event handler as a prop, as you just did, there are two names that you have to choose. Both naming choices occur in the parent component class - that is, in the component class that defines the event handler and passes it.
+
+The first name that you have to choose is the name of the event handler itself. Look at Talker.js, talk() this is our event handler. We chose to name it talk.
+
+The second name that you have to choose is the name of the prop that you will use to pass the event handler. This is the same thing as your attribute name. For our prop name, we also chose talk 
+
+`return <Button talk={this.talk} />;`
+
+These two names can be whatever you want. However, there is a naming convention that they often follow. You don't have to follow this convention, but you should understand it when you see it. Here's how the naming convention works: first, think about what type of event you are listening for. In our example, the event type was "click."
+
+If you are listening for a "click" event, then you name your event handler handleClick. If you are listening for a "keyPress" event, then you name your event handler handleKeyPress:
+
+`class MyClass extends React.Component {
+  handleHover() {
+    alert('I am an event handler.');
+    alert('I will be called in response to "hover" events.');
+  }
+}`
+
+Your prop name should be the word on, plus your event type. If you are listening for a "click" event, then you name your prop onClick. If you are listening for a "keyPress" event, then you name your prop onKeyPress:
+
+`class MyClass extends React.Component {
+  handleHover() {
+    alert('I am an event handler.');
+    alert('I will listen for a "hover" event.');
+  }
+  render() {
+    return <Child onHover={this.handleHover} />;
+  }
+}`
+
+### Example
+`//Talker.js
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { Button } from './Button';
+class Talker extends React.Component {
+  handleClick() {
+    let speech = '';
+    for (let i = 0; i < 10000; i++) {
+      speech += 'blah ';
+    }
+    alert(speech);
+  }
+  render() {
+    return <Button onClick={this.handleClick}/>;
+  }
+}
+ReactDOM.render(
+  <Talker />,
+  document.getElementById('app')
+);`
+
+
+## this.props.children
+Every component's props object has a property named children. `this.props.children` will return everything in between a component's opening and closing JSX tags.
+
+So far, all of the components that you've seen have been self-closing tags, such as <MyComponentClass />. They don't have to be! You could write <MyComponentClass></MyComponentClass>, and it would still work.
+
+this.props.children would return everything in between <MyComponentClass> and </MyComponentClass>.
+
+`//BigButton.js
+import React from 'react';
+import { LilButton } from './LilButton';
+class BigButton extends React.Component {
+  render() {
+    console.log(this.props.children);
+    return <button>Yo I am big</button>;
+  }
+}
+// Example 1
+<BigButton>
+  I am a child of BigButton.
+</BigButton>
+// Example 2
+<BigButton>
+  <LilButton />
+</BigButton>
+// Example 3
+<BigButton />`
+
+Look at BigButton.js. In Example 1, <BigButton>'s this.props.children would equal the text, "I am a child of BigButton."
+
+In Example 2, <BigButton>'s this.props.children would equal a <LilButton /> component.
+
+In Example 3, <BigButton>'s this.props.children would equal undefined.
+
+If a component has more than one child between its JSX tags, then this.props.children will return those children in an array. However, if a component has only one child, then this.props.children will return the single child, not wrapped in an array.
