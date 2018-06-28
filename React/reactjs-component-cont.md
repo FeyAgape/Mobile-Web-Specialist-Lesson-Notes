@@ -176,3 +176,5 @@ class ProfilePage extends React.Component {
   <ProfilePage />,
   document.getElementById('app')
 );`
+
+It may not seem like a big deal yet, but you've just discovered the key to React's power. By nesting components inside of other components, you can build infinitely complex architectures, even if each component is relatively simple. The relationship that you just built is the fundamental relationship of React.js.
