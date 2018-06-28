@@ -4,7 +4,7 @@
 You will learn another way that components can interact: a component can pass information to another component. Information that gets passed from one component to another is known as "props."
 
 
-## Access a Component's props
+## Accessing a Component's props
 Every component has something called props. A component's props is an object. It holds information about that component. To see a component's props object, you use the expression `this.props`. Here's an example of this.props being used inside of a render method:
 
 `render() {
@@ -17,7 +17,7 @@ Every component has something called props. A component's props is an object. It
 Most of the information in this.props is pretty useless! But some of it is extremely important, as you'll see.
 
 
-## Pass `props` to a Component
+## Passing `props` to a Component
 You can pass information to a React component. How? By giving that component an attribute:
 
 `<MyComponent foo="bar" />`
@@ -57,7 +57,7 @@ ReactDOM.render(
 );`
 
 
-## Render a Component's props
+## Rendering a Component's props
 You just passed information to a component's props object! You will often want a component to display the information that you pass.
 
 Here's how to make a component display passed-in information:
@@ -79,7 +79,7 @@ ReactDOM.render(
 );`
 
 
-## Pass props From Component To Component
+## Passing props From Component To Component
 You have learned how to pass a prop to a component:
 
 `<Greeting firstName="Esmerelda" />`
@@ -132,7 +132,7 @@ export class Greeting extends React.Component {
 You passed a prop from a component to a different component, accessed that prop from the receiver component, and rendered it!
 
 
-## Render Different UI Based on props
+## Rendering Different UI Based on props
 You can do more with props than just display them. You can also use props to make decisions.
 
 ### example
@@ -208,3 +208,14 @@ ReactDOM.render(
   document.getElementById('app')
 );`
 
+
+## Putting an Event Handler in a Component Class
+You can, and often will, pass functions as props. It is especially common to pass event handler functions.
+
+In the next lesson, you will pass an event handler function as a prop. However, you have to define an event handler before you can pass one anywhere. In this lesson, you will define an event handler function.
+
+How do you define an event handler in React?
+
+You define an event handler as a method on the component class, just like the render method. Almost all functions that you define in React will be defined in this way, as methods in a class.
+
+Take a look in the code editor. On lines 4 through 8, an event handler method is defined, with similar syntax as the render method. On line 12, that event handler method is attached to an event (a click event, in this case).
