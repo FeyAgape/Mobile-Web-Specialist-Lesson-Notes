@@ -243,3 +243,9 @@ Recall that an event handler is a function that gets called in response to an ev
 }`
 
 Notice that the component class has two methods: .myFunc() and .render(). .myFunc() is being used as an event handler. .myFunc() will be called any time that a user hovers over the rendered <div></div>.
+
+
+## Components Recap
+React components are complicated. Their syntax is complicated, and the reasoning behind their syntax is especially complicated. You have learned about component classes and component instances. You have learned about React.Component, and about the instructions that you must provide to a component class. You have learned how to import, and how to render a component instance.
+
+You have been introduced to some common ways of using JSX in React components. You have rendered components using multiline JSX expressions, logic inside of the render function, a conditional statement, this, and an event listener.
