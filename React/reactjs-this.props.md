@@ -35,3 +35,32 @@ If you want to pass information that isn't a string, then wrap that information 
 In this next example, we pass several pieces of information to <Greeting />. The values that aren't strings are wrapped in curly braces:
 
 `<Greeting name="Frarthur" town="Flundon" age={2} haunted={false} />`
+
+### example
+`import React from 'react';
+import ReactDOM from 'react-dom';
+class PropsDisplayer extends React.Component {
+  render() {
+    const stringProps = JSON.stringify(this.props);
+    return (
+      <div>
+        <h1>CHECK OUT MY PROPS OBJECT</h1>
+        <h2>{stringProps}</h2>
+      </div>
+    );
+  }
+}
+// ReactDOM.render goes here:
+ReactDOM.render(
+  <PropsDisplayer myProp="Hello" />,
+  document.getElementById('app')
+);`
+
+
+## Render a Component's props
+You just passed information to a component's props object! You will often want a component to display the information that you pass.
+
+Here's how to make a component display passed-in information:
+
+1.  Find the component class that is going to receive that information.
+2.  Include this.props.name-of-information in that component class's render method's return statement.
