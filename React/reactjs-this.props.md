@@ -472,3 +472,94 @@ export class List extends React.Component {
   }
 }`
 
+
+## DefaultProps
+`Button.js
+import React from 'react';
+import ReactDOM from 'react-dom';
+class Button extends React.Component {
+  render() {
+    return (
+      <button>
+        {this.props.text}
+      </button>
+    );
+  }
+}
+// defaultProps goes here:
+ReactDOM.render(
+  <Button />, 
+  document.getElementById('app')
+);`
+
+Take a look at the Button component class.
+
+Notice that Button is expected to receive a prop named text. The received text will be displayed inside of a <button></button> element. What if nobody passes any text to Button?
+
+If nobody passes any text to Button, then Button's display will be blank. It would be better if Button could display a default message instead.
+
+You can make this happen by giving your component class a property named defaultProps:
+
+`class Example extends React.Component {
+  render() {
+    return <h1>{this.props.text}</h1>;
+  }
+}`
+
+Example.defaultProps;
+The defaultProps property should be equal to an object:
+
+`class Example extends React.Component {
+  render() {
+    return <h1>{this.props.text}</h1>;
+  }
+}
+// Set defaultProps equal to an object:
+Example.defaultProps = {};`
+
+Inside of this object, write properties for any default props that you'd like to set:
+
+`class Example extends React.Component {
+  render() {
+    return <h1>{this.props.text}</h1>;
+  }
+}
+Example.defaultProps = { text: 'yo' };`
+
+If an <Example /> doesn't get passed any text, then it will display "yo." If an <Example /> does get passed some text, then it will display that passed-in text.
+
+### Example 
+
+`import React from 'react';
+import ReactDOM from 'react-dom';
+class Button extends React.Component {
+  render() {
+    return (
+      <button>
+        {this.props.text}
+      </button>
+    );
+  }
+}
+// defaultProps goes here:
+Button.defaultProps = { text: 'I am a button' };
+ReactDOM.render(
+  <Button text="I am a button"/>, 
+  document.getElementById('app')
+);`
+
+
+## this.props Recap
+props is quite possibly the longest and most difficult lesson in all of our React courses. 
+
+1. Passing a prop by giving an attribute to a component instance
+2. Accessing a passed-in prop via this.props.prop-name
+3. Displaying a prop
+4. Using a prop to make decisions about what to display
+5. Defining an event handler in a component class
+6. Passing an event handler as a prop
+7. Receiving a prop event handler and attaching it to an event listener
+8. Naming event handlers and event handler attributes according to convention
+9. this.props.children
+10. getDefaultProps
+11. That's a lot! Don't worry if it's all a bit of a blur. Soon you'll get plenty of practice!
