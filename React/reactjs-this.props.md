@@ -212,10 +212,89 @@ ReactDOM.render(
 ## Putting an Event Handler in a Component Class
 You can, and often will, pass functions as props. It is especially common to pass event handler functions.
 
-In the next lesson, you will pass an event handler function as a prop. However, you have to define an event handler before you can pass one anywhere. In this lesson, you will define an event handler function.
-
 How do you define an event handler in React?
 
 You define an event handler as a method on the component class, just like the render method. Almost all functions that you define in React will be defined in this way, as methods in a class.
 
-Take a look in the code editor. On lines 4 through 8, an event handler method is defined, with similar syntax as the render method. On line 12, that event handler method is attached to an event (a click event, in this case).
+`import React from 'react';
+class Example extends React.Component {
+  handleEvent() {
+    alert(``I am an event handler.
+      If you see this message,
+      then I have been called.``);
+  }
+  render() {
+    return (
+      <h1 onClick={this.handleEvent}>
+        Hello world
+      </h1>
+    );
+  }
+}`
+
+### Example
+`//button.js
+import React from 'react';
+export class Button extends React.Component {
+  render() {
+    return (
+      <button>
+        Click me!
+      </button>
+    );
+  }
+}`
+
+**before**
+`//Talker.js  
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { Button } from './Button';
+function talk () {
+  let speech = '';
+  for (let i = 0; i < 10000; i++) {
+    speech += 'blah ';
+  }
+  alert(speech);
+}
+class Talker extends React.Component {
+  render() {
+    return <Button />;
+  }
+}
+ReactDOM.render(
+  <Talker />,
+  document.getElementById('app')
+);`
+
+**after**
+`//Talker.js  
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { Button } from './Button';
+class Talker extends React.Component {
+talk () {
+  let speech = '';
+  for (let i = 0; i < 10000; i++) {
+    speech += 'blah ';
+  }
+  alert(speech);
+}
+  render() {
+    return <Button />;
+  }
+}
+ReactDOM.render(
+  <Talker />,
+  document.getElementById('app')
+);`
+You've defined a new method on the Talker component class
+
+
+## Pass an Event Handler as a prop
+You've defined a new method on the Talker component class. Now you're ready to pass that function to another component. You can pass a method in the exact same way that you pass any other information. Behold, the mighty JavaScript.
+
+
+
+
+** In order to pass an event handler function as a prop, you have to define an event handler before you can pass one anywhere.** 
