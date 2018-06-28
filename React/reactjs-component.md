@@ -50,3 +50,42 @@ The key thing to notice in QuoteMaker is the parentheses in the return statement
 
 However, a multi-line JSX expression should always be wrapped in parentheses! That is why QuoteMaker's return statement has parentheses around it.
 
+
+## Use a Variable Attribute in a Component
+Take a look at this JavaScript object named redPanda:
+
+`const redPanda = {
+  src:  'https://upload.wikimedia.org/wikipedia/commons/b/b2/Endangered_Red_Panda.jpg',
+  alt: 'Red Panda',
+  width:  '200px
+};`
+
+How could you render a React component, and get a picture with redPanda's properties?
+
+`import React from 'react';
+import ReactDOM from 'react-dom';
+const redPanda = {
+  src: 'https://upload.wikimedia.org/wikipedia/commons/b/b2/Endangered_Red_Panda.jpg',
+  alt: 'Red Panda',
+  width:  '200px'
+};
+class RedPanda extends React.Component {
+  render() {
+    return (
+      <div>
+        <h1>Cute Red Panda</h1>
+        <img 
+          src={redPanda.src}
+          alt={redPanda.alt}
+          width={redPanda.width} />
+      </div>
+    );
+  }
+}
+ReactDOM.render(
+  <RedPanda />,
+  document.getElementById('app')
+);
+`
+
+Note all of the curly-brace JavaScript injections inside of the render function! Lines 14, 15, and 16 all use JavaScript injections. You can, and often will, inject JavaScript into JSX inside of a render function.
