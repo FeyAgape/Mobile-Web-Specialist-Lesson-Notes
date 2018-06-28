@@ -15,7 +15,7 @@ class MyComponentClass extends React.Component {
   render() {
     return <h1>Hello world</h1>;
   }
-};
+}
 ReactDOM.render(
   <MyComponentClass />,
   document.getElementById('app')
@@ -48,3 +48,49 @@ You've already seen one of the methods contained in the React library: `React.cr
 **For this reason, you have to import the React library, and save it in a variable named React, before you can use any JSX at all. `React.createElement()` must be available in order for JSX to work.**
 
 
+## Import ReactDOM
+Now take a look at the code on line 2:
+
+`import ReactDOM from 'react-dom';`
+This line of code is very similar to line 1.
+
+Lines 1 and 2 both import JavaScript objects. In both lines, the imported object contains React-related methods.
+
+However, there is a difference!
+
+The methods imported from 'react-dom' are meant for interacting with the DOM. You are already familiar with one of them: ReactDOM.render().
+
+The methods imported from 'react' don't deal with the DOM at all. They don't engage directly with anything that isn't part of React.
+
+To clarify: the DOM is used in React applications, but it isn't part of React. After all, the DOM is also used in countless non-React applications. Methods imported from 'react' are only for pure React purposes, such as creating components or writing JSX elements.
+
+
+## Create a Component Class
+You've learned that a React component is a small, reusable chunk of code that is responsible for one job, which often involves rendering HTML.
+
+Here's another fact about components: every component must come from a component class.
+
+A component class is like a factory that creates components. If you have a component class, then you can use that class to produce as many components as you want. To make a component class, you use a base class from the React library: React.Component.
+
+What is `React.Component`, and how do you use it to make a component class?
+
+React.Component is a JavaScript class. To create your own component class, you must subclass React.Component. You can do this by using the syntax class YourComponentNameGoesHere extends React.Component {}.
+
+On line 4, you know that you are declaring a new component class, which is like a factory for building React components. You know that React.Component is a class, which you must subclass in order to create a component class of your own. You also know that React.Component is a property on the object which was returned by import React from 'react' on line 1.
+
+
+
+
+### example
+`
+import React from 'react';
+import ReactDOM from 'react-dom';
+class MyComponentClass extends React.Component {
+  render() {
+    return <h1>Hello world</h1>;
+  }
+}
+ReactDOM.render(
+  <MyComponentClass />, 
+  document.getElementById('app')
+);`
