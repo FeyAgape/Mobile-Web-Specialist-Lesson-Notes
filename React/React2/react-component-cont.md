@@ -328,3 +328,12 @@ export class Sibling extends React.Component {
 
 That brings us to the essential new concept for this lesson: you will have one stateless component display information, and a different stateless component offer the ability to change that information.
 
+
+## Pass the Right props to the Right Siblings
+Look at Parent.js
+Three things have changed.
+
+1. Sibling has been required
+2. <Sibling /> instance has been added to the render function.
+3. <Sibling /> and <Child /> have been wrapped in a <div></div>, since JSX expressions must have only one outer element.
+
