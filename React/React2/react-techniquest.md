@@ -16,3 +16,31 @@ The outer curly braces inject JavaScript into JSX. They say, "everything between
 `{ color: 'red' }`
 
 If you inject an object literal into JSX, and your entire injection is only that object literal, then you will end up with double curly braces. There's nothing unusual about how they work, but they look funny and can be confusing.
+
+
+## Make A Style Object Variable
+That's all that you need to apply basic styles in React! Simple and straightforward. One problem with this approach is that it becomes obnoxious if you want to use more than just a few styles. An alternative that's often nicer is to store a style object in a variable, and then inject that variable into JSX.
+
+`import React from 'react';
+const styles = {
+  color: 'darkcyan',
+  background: 'mintcream'
+};
+export class StyledClass extends React.Component {
+  render() {
+    return (
+      <h1 style={styles}>
+        Hello world
+      </h1>
+    );
+  }
+}`
+
+If you aren't used to using modules, then this code may have made you twitch uncontrollably:
+
+`const style = {
+  color: 'darkcyan',
+  background: 'mintcream'
+};`
+
+Defining a variable named style in the top-level scope would be an extremely bad idea in many JavaScript environments! In React, however, it's totally fine. Remember that every file is invisible to every other file, except for what you choose to expose via module.exports. You could have 100 different files, all with global variables named style, and there could be no conflicts.
