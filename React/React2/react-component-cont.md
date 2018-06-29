@@ -235,4 +235,96 @@ export class Child extends React.Component {
 Stateless components updating their parents' state is a React pattern that you'll see more and more. Learning to recognize it will help you understand how React apps are organized.
 
 
-## 
+## Child Components Update Sibling Components
+Patterns within patterns within patterns!
+
+First React programming pattern: a stateful, parent component passes down a prop to a stateless, child component. Pattern is actually part of a larger pattern: a stateful, parent component passes down an event handler to a stateless, child component. The child component then uses that event handler to update its parent's state.
+
+We will expand the pattern one last time. A child component updates its parent's state, and the parent passes that state to a sibling component. An understanding of this final pattern will be very helpful in the wild.
+
+
+## One Sibling to Display, Another to Change
+One of the very first things that you learned about components is that they should only have one job.
+
+In the last lesson, Child had two jobs:
+
+1. Child displayed a name.
+2. Child offered a way to change that name.
+
+You should make like Solomon and divide Child in two: one component for displaying the name, and a different component for allowing a user to change the name.
+
+`//Parent.js
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { Child } from './Child';
+import { Sibling } from './Sibling';
+class Parent extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { name: 'Frarthur' };
+    this.changeName = this.changeName.bind(this);
+  }
+  changeName(newName) {
+    this.setState({
+      name: newName
+    });
+  }
+  render() {
+    return (
+      <div>
+        <Child 
+          name={this.state.name} 
+          onChange={this.changeName} />
+        <Sibling />
+      </div>
+    );
+  }
+}
+ReactDOM.render(
+  <Parent />,
+  document.getElementById('app')
+);
+`
+
+`//Child.js
+import React from 'react';
+export class Child extends React.Component {
+  constructor(props) {
+    super(props);
+    this.handleChange = this.handleChange.bind(this);
+  }
+  handleChange(e) {
+    const name = e.target.value;
+    this.props.onChange(name);
+  }
+  render() {
+    return (
+      <div>
+        <select
+          id="great-names"
+          onChange={this.handleChange}>
+          <option value="Frarthur">Frarthur</option>
+          <option value="Gromulus">Gromulus</option>
+          <option value="Thinkpiece">Thinkpiece</option>
+        </select>
+      </div>
+    );
+  }
+}`
+
+`//Sibling.js
+import React from 'react';
+export class Sibling extends React.Component {
+  render() {
+    return (
+      <div>
+        <h1>Hey, my name is Frarthur!</h1>
+        <h2>Don't you think Frarthur is the prettiest name ever?</h2>
+        <h2>Sure am glad that my parents picked Frarthur!</h2>
+      </div>
+    );
+  }
+}`
+
+That brings us to the essential new concept for this lesson: you will have one stateless component display information, and a different stateless component offer the ability to change that information.
+
