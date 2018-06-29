@@ -44,3 +44,21 @@ If you aren't used to using modules, then this code may have made you twitch unc
 };`
 
 Defining a variable named style in the top-level scope would be an extremely bad idea in many JavaScript environments! In React, however, it's totally fine. Remember that every file is invisible to every other file, except for what you choose to expose via module.exports. You could have 100 different files, all with global variables named style, and there could be no conflicts.
+
+
+## Style Name Syntax
+In regular JavaScript, style names are written in hyphenated-lowercase:
+
+`const styles = {
+  'margin-top':       "20px",
+  'background-color': "green"
+};`
+
+In React, those same names are instead written in camelCase:
+
+`const styles = {
+  marginTop:       "20px",
+  backgroundColor: "green"
+};`
+
+This has zero effect on style property values, only on style property names.
