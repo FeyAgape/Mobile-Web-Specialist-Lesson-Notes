@@ -170,6 +170,9 @@ This function needs to be passed a new name as an argument, in order to work pro
 
 This new function should take an event object as an argument, extract the name that you want from that event object, and then call the event handler, passing in the extracted name! It sounds like a lot, but you will see this happen so often that it will soon feel intuitive. In Child.js, before the render function, define a new function that can be passed an event object:
 
+You've defined a new function that can take an event object, and use it to correctly update the parent's state. Now let's put that new function to use! As with all methods that we pass in React, we must first bind this to our new method to the current instance of Child.
+
+
 `//Parent.js
 import React from 'react';
 import ReactDOM from 'react-dom';
