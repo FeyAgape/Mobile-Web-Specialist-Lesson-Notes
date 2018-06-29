@@ -103,9 +103,17 @@ const fontFamily = 'Comic Sans MS, Lucida Handwriting, cursive';
 const background = 'pink url("https://media.giphy.com/media/oyr89uTOBNVbG/giphy.gif") fixed';
 const fontSize = '4em';
 const padding = '45px 0';
-const color = 'green';`
+const color = 'green';
+export const styles = {
+  fontFamily: fontFamily,
+  background: background,
+  fontSize:   fontSize,
+  padding:    padding,
+  color:      color
+};`
 
 `//App.js
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { colorStyles } from './Styles';`
+import { colorStyles } from './Styles';
+import { styles } from './Extra';`
