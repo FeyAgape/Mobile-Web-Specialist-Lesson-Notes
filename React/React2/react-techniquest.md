@@ -76,3 +76,36 @@ If you want to use units other than "px," you can use a string:
 `{ fontSize: "2em" }`
 
 Specifying "px" with a string will still work, although it's redundant. A few specific styles will not automatically fill in the "px" for you. These are styles where you aren't likely to use "px" anyway, so you don't really have to worry about it. [Here](https://facebook.github.io/react/tips/style-props-value-px.html) is a list of styles that don't assume "px".
+
+
+## Share Styles Across Multiple Components
+What if you want to reuse styles for several different components? One way to make styles reusable is to keep them in a separate JavaScript file. This file should export the styles that you want to reuse, via export. You can then import your styles into any component that wants them.
+
+### Example 
+
+`//styles.js
+// facebook color palette
+const blue = 'rgb(139, 157, 195)';
+const darkBlue = 'rgb(059, 089, 152)';
+const lightBlue = 'rgb(223, 227, 238)';
+const grey = 'rgb(247, 247, 247)';
+const white = 'rgb(255, 255, 255)';
+const colorStyles = {
+  blue: blue,
+  darkBlue: darkBlue,
+  lightBlue: lightBlue,
+  grey: grey,
+  white: white
+};`
+
+`//Extra.js
+const fontFamily = 'Comic Sans MS, Lucida Handwriting, cursive';
+const background = 'pink url("https://media.giphy.com/media/oyr89uTOBNVbG/giphy.gif") fixed';
+const fontSize = '4em';
+const padding = '45px 0';
+const color = 'green';`
+
+`//App.js
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { colorStyles } from './Styles';`
