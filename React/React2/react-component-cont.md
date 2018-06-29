@@ -25,3 +25,16 @@ class Parent extends React.Component {
 }`
 
 Now our stateless component class.
+
+`//Child.js
+import React from 'react';
+export class Child extends React.Component {
+  render() {
+    return <h1>Hey, my name is {this.props.name}!</h1>;
+  }
+}`
+
+
+## Pass a Component's State
+A <Parent /> is supposed to pass its state to a <Child />. Before a <Parent /> can pass anything to a <Child />, you need to import Child into Parent.js.
+
