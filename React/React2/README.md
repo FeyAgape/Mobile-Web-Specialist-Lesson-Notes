@@ -1,0 +1,3 @@
+# React-Tutorial from [CodeAcademy](https://www.codecademy.com/)
+
+This React Tutorial will teach you the remaining most essential tools that any React.js programmer is expected to know, including lifecycle methods, proptypes, basic styling, stateless functional components, and more. You will also be introduced to your first React.js programming patterns, and learn to setup React on your local computer.
