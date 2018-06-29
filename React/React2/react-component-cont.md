@@ -157,4 +157,7 @@ export class ChildClass extends React.Component {
 Look in Step3.js. When a user clicks on the <button></button>, a click event will fire. This will make the passed-down function get called, which will update the parent's state.
 
 
-##
+## Define an Event Handler
+To make a child component update its parent's state, the first step is something that you've seen before: you must define a state-changing method on the parent.
+
+
