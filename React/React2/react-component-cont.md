@@ -337,3 +337,7 @@ Three things have changed.
 2. <Sibling /> instance has been added to the render function.
 3. <Sibling /> and <Child /> have been wrapped in a <div></div>, since JSX expressions must have only one outer element.
 
+Sibling's job is to display the selected name. That name is stored in Parent's state. Parent will have to pass the name to Sibling, so that Sibling can display it.  In Parent's render function, pass the name to <Sibling />
+
+
+## 
