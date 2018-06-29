@@ -161,3 +161,69 @@ Look in Step3.js. When a user clicks on the <button></button>, a click event wil
 To make a child component update its parent's state, the first step is something that you've seen before: you must define a state-changing method on the parent.
 
 
+## Pass the Event Handler
+The second step is the Parent must pass this function down to Child, so that Child can use it in an event listener on the dropdown menu.
+
+
+## Receive the Event Handler
+This function needs to be passed a new name as an argument, in order to work properly. When a user selects a new dropdown item, it will invoke changeName, but it won't pass the correct argument! Instead of passing a new name, it will pass an event object, as all event listeners do. This is a common problem when passing down an event handler in React! The solution is to define another function.
+
+This new function should take an event object as an argument, extract the name that you want from that event object, and then call the event handler, passing in the extracted name! It sounds like a lot, but you will see this happen so often that it will soon feel intuitive. In Child.js, before the render function, define a new function that can be passed an event object:
+
+`//Parent.js
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { Child } from './Child';
+class Parent extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { name: 'Frarthur' };   
+    this.changeName = this.changeName.bind(this);
+  }  
+  changeName(newName) {
+    this.setState({
+      name: newName
+    });
+  }
+  render() {
+    return <Child name={this.state.name} onChange={this.changeName} />
+  }
+}
+ReactDOM.render(
+	<Parent />,
+	document.getElementById('app')
+);`
+
+`//Child.js
+import React from 'react';
+export class Child extends React.Component {
+  constructor(props) {
+    super(props);    
+    this.handleChange = this.handleChange.bind(this);
+  }
+  handleChange(e) {
+    const name = e.target.value;
+    this.props.onChange(name);
+  }
+  render() {
+    return (
+      <div>
+        <h1>
+          Hey my name is {this.props.name}!
+        </h1>
+        <select id="great-names" onChange={this.handleChange}>
+          <option value="Frarthur">
+            Frarthur
+          </option>
+          <option value="Gromulus">
+            Gromulus
+          </option>
+          <option value="Thinkpiece">
+            Thinkpiece
+          </option>
+        </select>
+      </div>
+    );
+  }
+}`
+
