@@ -62,3 +62,14 @@ export class Child extends React.Component {
 }`
 
 
+## Don't Update props
+You just passed information from a stateful component to a stateless component. You will be doing a lot of that. A component can change its state by calling this.setState(). You may have been wondering: how does a component change its props?
+
+The answer: it doesn't!
+
+A component should never update this.props. This is potentially confusing. props and state store dynamic information. Dynamic information can change, by definition. If a component can't change its props, then what are props for? A React component should use props to store information that can be changed, but can only be changed by a different component.
+
+A React component should use state to store information that the component itself can change. 
+
+
+## 
