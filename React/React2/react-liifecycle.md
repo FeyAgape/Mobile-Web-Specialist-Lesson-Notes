@@ -289,3 +289,9 @@ export class Example extends React.Component {
     return <h1>Hello world</h1>;
   }
 }`
+
+
+## Lifecycle Methods Recap
+Congratulations on making it to the end, you have acquired all of the tools that you need to program in React!
+
+However, you aren't quite done with this course yet! You might be asking yourself how to create a React app on your own computer. Click [here](https://www.codecademy.com/articles/how-to-create-a-react-app) to get started!
