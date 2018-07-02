@@ -72,3 +72,9 @@ The fact that <input /> keeps track of information makes it an uncontrolled comp
 In React, when you give an <input /> a value attribute, then something strange happens: the <input /> BECOMES controlled. It stops using its internal storage. This is a more 'React' way of doing things.
 
 You can find more information about controlled and uncontrolled components in the React Forms documentation [here](https://reactjs.org/docs/forms.html).
+
+
+## React Forms Recap
+Notice that you didn't use a submit button. You didn't even use a <form> element! Your "form" was actually just an <input />.
+
+That won't always be the case. You will still sometimes want a <form> element and a submit button, especially if you need to differentiate between a finished form and an in-progress form. But in some cases, it's fine to have a "form" that is really just an input field. This is because, unlike in the traditional form paradigm, in React you re-send your form on every single character change. That removes the need to ever "submit" anything.
