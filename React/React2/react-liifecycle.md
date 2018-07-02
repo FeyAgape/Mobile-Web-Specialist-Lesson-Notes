@@ -65,3 +65,4 @@ ReactDOM.render(
   <Example2 />,
   document.getElementById('app')
 );`
+
