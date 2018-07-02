@@ -7,7 +7,7 @@ get name() {
   return 'Fey';
 }
   render () {   
-     return <h1>My name is {this.name}.</h1>;
+     return <h1>{this.name} is not a Monday person.</h1>;
   }
 }
 
