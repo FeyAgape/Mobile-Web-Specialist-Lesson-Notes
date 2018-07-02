@@ -111,8 +111,50 @@ ReactDOM.render(
 ## Stateless Functional Components
 Take a look at GuineaPigs, notice that its instructions object only has one property: render(). When you separate a container component from a presentational component, the presentational component will always end up like this: one render() function, and no other properties.
 
-If you have a component class with nothing but a render function, then you can rewrite that component class in a very different way. Instead of using React.Component, you can write it as JavaScript function!
+If you have a component class with nothing but a render function, then you can rewrite that component class in a very different way. Instead of using React.Component, you can write it as JavaScript function! A component class written as a function is called a stateless functional component. Stateless functional components have some advantages over typical component classes. 
 
-A component class written as a function is called a stateless functional component. Stateless functional components have some advantages over typical component classes. We'll cover those advantages in this lesson.
+`// A component class written in the usual way:
+export class MyComponentClass extends React.Component {
+  render() {
+    return <h1>Hello world</h1>;
+  }
+}
+// The same component class, written as a stateless functional component:
+export const MyComponentClass = () => {
+  return <h1>Hello world</h1>;
+}
+// Works the same either way:
+ReactDOM.render(
+	<MyComponentClass />,
+	document.getElementById('app')
+);`
 
-Click on Example.js to see a stateless functional component in action.
+
+## Stateless Functional Components and Props
+Stateless functional components usually have props passed to them. To access these props, give your stateless functional component a parameter. This parameter will automatically be equal to the component's props object. It's customary to name this parameter props. Read Example.js to see how it works.
+
+Not only are stateless functional components more concise, but they will subtly influence how you think about components in a positive way. They emphasize the fact that components are basically functions! A component takes two optional inputs, props and state, and outputs HTML and/or other components.
+
+`
+// Normal way to display a prop:
+export class MyComponentClass extends React.Component {
+  render() {
+    return <h1>{this.props.title}</h1>;
+  }
+}
+// Stateless functional component way to display a prop:
+export const MyComponentClass = (props) => {
+  return <h1>{props.title}</h1>;
+}
+// Normal way to display a prop using a variable:
+export class MyComponentClass extends React.component {
+  render() {
+  	let title = this.props.title;
+    return <h1>{title}</h1>;
+  }
+}
+// Stateless functional component way to display a prop using a variable:
+export const MyComponentClass = (props) => {
+	let title = props.title;
+  return <h1>{title}</h1>;
+}`
