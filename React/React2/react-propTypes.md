@@ -186,3 +186,56 @@ It turns out the process if fairly similar. To write propTypes for a stateless f
 Example.propTypes = {
   message: React.PropTypes.string.isRequired
 };`
+
+### Example
+
+`//GuineaPigs.js
+import React from 'react';
+export const GuineaPigs = (props) => {
+  let src = props.src;
+  return (
+    <div>
+      <h1>Cute Guinea Pigs</h1>
+      <img src={src} />
+    </div>
+  );
+}
+GuineaPigs.propTypes = {
+  src: React.PropTypes.string.isRequired
+};`
+
+`//GuineaPigsContainer.js
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { GuineaPigs } from '../components/GuineaPigs';
+const GUINEAPATHS = [
+  'https://s3.amazonaws.com/codecademy-content/courses/React/react_photo-guineapig-1.jpg',
+  'https://s3.amazonaws.com/codecademy-content/courses/React/react_photo-guineapig-2.jpg',
+  'https://s3.amazonaws.com/codecademy-content/courses/React/react_photo-guineapig-3.jpg',
+  'https://s3.amazonaws.com/codecademy-content/courses/React/react_photo-guineapig-4.jpg'
+];
+export class GuineaPigsContainer extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { currentGP: 0 };
+  }
+  nextGP() {
+    let current = this.state.currentGP;
+    let next = ++current % GUINEAPATHS.length;
+    this.setState({ currentGP: next });
+  }
+  componentDidMount() {
+    this.interval = setInterval(this.nextGP, 5000);
+  }
+  componentWillUnmount() {
+    clearInterval(this.interval);
+  }
+  render() {
+    let src = GUINEAPATHS[this.state.currentGP];
+    return <GuineaPigs src={src} />;
+  }
+});
+ReactDOM.render(
+  <GuineaPigsContainer />, 
+  document.getElementById('app')
+);`
