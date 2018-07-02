@@ -44,10 +44,12 @@ ReactDOM.render(
 
 
 ## Set the Input's Initial State
-Any time that someone types or deletes in <input />, the .handleUserInput() method will update this.state.userInput with the <input />'s text.
+Any time that someone types or deletes in <input />, the .handleUserInput() method will update this.state.userInput with the <input />'s text. Since you're using this.setState, that means that Input needs an initial state! What should this.state's initial value be?
 
-Since you're using this.setState, that means that Input needs an initial state! What should this.state's initial value be?
+Well, this.state.userInput will be displayed in the <input />. What should the initial text in the <input /> be, when a user first visits the page? The initial text should be blank! Otherwise it would look like someone had already typed something.
 
-Well, this.state.userInput will be displayed in the <input />. What should the initial text in the <input /> be, when a user first visits the page?
 
-The initial text should be blank! Otherwise it would look like someone had already typed something.
+## Update an Input's Value
+When a user types or deletes in the <input />, then that will trigger a change event, which will call handleUserInput. That's good! handleUserInput will set this.state.userInput equal to whatever text is currently in the input field. That's also good! There's only one problem: you can set this.state.userInput to whatever you want, but <input /> won't care. You need to somehow make the <input />'s text responsive to this.state.userInput.
+
+Easy enough! You can control an <input />'s text by setting its value attribute.
