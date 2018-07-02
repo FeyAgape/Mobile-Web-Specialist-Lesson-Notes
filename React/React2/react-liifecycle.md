@@ -66,3 +66,9 @@ ReactDOM.render(
   document.getElementById('app')
 );`
 
+
+## render
+render is a lifecycle method! Whenever a component mounts, componentWillMount is called first, followed by render, followed by componentDidMount. render belongs to two categories: mounting lifecycle methods, and updating lifecycle methods. 
+
+
+##
