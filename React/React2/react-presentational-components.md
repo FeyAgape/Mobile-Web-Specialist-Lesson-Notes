@@ -70,7 +70,7 @@ export class GuineaPigs extends React.Component {
   }
 }``
 
-`import React from 'react';
+``import React from 'react';
 import ReactDOM from 'react-dom';
 import { GuineaPigs } from '../filepath/GuineaPigs';
 const GUINEAPATHS = [
@@ -106,3 +106,5 @@ ReactDOM.render(
   <GuineaPigsContainer />,
   document.getElementById('app')
 );``
+
+
