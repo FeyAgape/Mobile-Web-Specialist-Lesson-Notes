@@ -17,23 +17,37 @@ A traditional form doesn't update the server until a user hits "submit." But you
 An event handler is a function that gets called whenever a user enters or deletes any character. It will listen for change events. 
 
 `import React from 'react';
-export class Example extends React.Component {
+import ReactDOM from 'react-dom';
+export class Input extends React.Component {
   constructor(props) {
-    super(props);
-    this.state = { userInput: '' };
-    this.handleChange = this.handleChange.bind(this);
-  }
-  handleChange(e) {
-    this.setState({
-      userInput: e.target.value
-    });
+    super(props);   
+    this.state = { userInput: '' };    
+    this.handleUserInput = this.handleUserInput.bind(this);
+  }  
+  handleUserInput(e) {
+    this.setState({userInput: e.target.value});
   }
   render() {
     return (
-      <input 
-        onChange={this.handleChange} 
-        type="text" />
+      <div>
+        <input type="text" onChange={this.handleUserInput} value={this.state.userInput} />
+        <h1>{this.state.userInput}</h1>
+      </div>
     );
   }
 }
+ReactDOM.render(
+  <Input />,
+  document.getElementById('app')
+);
 `
+
+
+## Set the Input's Initial State
+Any time that someone types or deletes in <input />, the .handleUserInput() method will update this.state.userInput with the <input />'s text.
+
+Since you're using this.setState, that means that Input needs an initial state! What should this.state's initial value be?
+
+Well, this.state.userInput will be displayed in the <input />. What should the initial text in the <input /> be, when a user first visits the page?
+
+The initial text should be blank! Otherwise it would look like someone had already typed something.
