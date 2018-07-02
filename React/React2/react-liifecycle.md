@@ -272,3 +272,20 @@ export class Example extends React.component {
 componentDidUpdate automatically gets passed two arguments: prevProps and prevState. prevProps and prevState are references to the component's props and state before the current updating period began. You can compare them to the current props and state.
 
 componentDidUpdate is usually used for interacting with things outside of the React environment, like the browser or APIs. It's similar to componentWillUpdate in that way, except that it gets called after render instead of before.
+
+
+## componentWillUnmount
+A component's unmounting period occurs when the component is removed from the DOM. This could happen if the DOM is rerendered without the component, or if the user navigates to a different website or closes their web browser.
+
+componentWillUnmount is the only unmounting lifecycle method! componentWillUnmount gets called right before a component is removed from the DOM. If a component initiates any methods that require cleanup, then componentWillUnmount is where you should put that cleanup.
+
+`//Example
+import React from 'react';
+export class Example extends React.Component {
+  componentWillUnmount() {
+    alert('Goodbye world');
+  }
+  render() {
+    return <h1>Hello world</h1>;
+  }
+}`
