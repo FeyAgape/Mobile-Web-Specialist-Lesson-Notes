@@ -83,7 +83,8 @@ Runner.propTypes = {
 Runner has six propTypes! Look at each one. Note that bool and func are abbreviated, but all other datatypes are spelled normally. If you add .isRequired to a propType, then you will get a console warning if that prop isn't sent.
 
 # Example
-`import React from 'react';
+`//BestSeller.js
+import React from 'react';
 export class BestSeller extends React.Component {
   render() {
     return (
@@ -106,3 +107,35 @@ BestSeller.propTypes = {
   author: React.PropTypes.string.isRequired,
   weeksOnList: React.PropTypes.number.isRequired
 };`
+
+`//BookList.js
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { BestSeller } from './BestSeller';
+export class BookList extends React.Component {
+  render() {
+    return (
+      <div>
+        <h1>Best Sellers</h1>
+        <div>
+          <ol>
+            <BestSeller 
+              title="Glory and War Stuff for Dads" 
+              author="Sir Eldrich Van Hoorsgaard" 
+              weeksOnList={10} />
+            <BestSeller 
+              title="The Crime Criminals!" 
+              author="Brenda Sqrentun" 
+              weeksOnList={2} />
+            <BestSeller
+              title="Subprime Lending For Punk Rockers" 
+              author="Malcolm McLaren" 
+              weeksOnList={600} />
+          </ol>
+        </div>
+      </div>
+    );
+  }
+}
+ReactDOM.render(<BookList />, document.getElementById('app'));`
+
