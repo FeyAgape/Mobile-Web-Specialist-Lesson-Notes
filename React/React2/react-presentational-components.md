@@ -158,3 +158,17 @@ export const MyComponentClass = (props) => {
 	let title = props.title;
   return <h1>{title}</h1>;
 }`
+
+### Example
+`//GuineaPigs.js
+import React from 'react';
+export const GuineaPigs = (props) => {
+  let src = props.src;
+  return (
+    <div>
+      <h1>Cute Guinea Pigs</h1>
+      <img src={src} />
+    </div>
+  );
+}`
+
