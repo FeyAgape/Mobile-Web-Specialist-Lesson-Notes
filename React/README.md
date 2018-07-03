@@ -10,7 +10,7 @@ A React app is basically just a lot of components, setting state and passing pro
 ## INTRODUCTION
 React is a user interface framework developed by Facebook. It has a quickly growing developer adoption rate and was ranked as the most loved language or technology in the 2017 Stackoverflow developer survey. This article will walk you through setting up your first React app and assumes you are familiar with text editors and command line navigation. We will be using the Node package manager (npm), so you will need to have Node installed.
 
-1. SET UP THE BOILERPLATE APPLICATION
+## SET UP THE BOILERPLATE APPLICATION
 It is possible to manually create a React app, but Facebook has created a node module create-react-app to generate a boilerplate version of a React application.
 
 Besides providing something that works out-of-the-box, this has the added benefit of providing a consistent structure for React apps that you will recognize as you move between React projects. It also provides an out-of-the-box build script and development server. We will use npm to install the create-react-app command line interface (CLI) globally (-g).
@@ -22,37 +22,25 @@ Now that you have the CLI available for use, navigate to the parent directory th
 
 `create-react-app <name-of-app>` *dont include the <>*
 
-
 Upon completion, you will get some quick tips on how to use the application. Before we run the app, lets take a look around the app structure and see what it contains.
 
-2. REACT APP STRUCTURE
+## REACT APP STRUCTURE
 Change directories into the app you just created. If you list the contents of the directory including hidden files (ls -la), you should see the following structure:
 
 create-react-app has taken care of setting up the main structure of the application as well as a couple of developer settings. Most of what you see will not be visible to the visitor of your web app. React uses a tool called webpack which transforms the directories and files here into static assets. Visitors to your site are served those static assets.
 
-.gitignore
+**.gitignore** This is the standard file used by the source control tool git to determine which files and directories to ignore when committing code. While this file exists, create-react-app did not create a git repo within this folder. If you take a look at the file, it has taken care of ignoring a number of items (even .DS_Store for Mac users):
 
-This is the standard file used by the source control tool git to determine which files and directories to ignore when committing code. While this file exists, create-react-app did not create a git repo within this folder. If you take a look at the file, it has taken care of ignoring a number of items (even .DS_Store for Mac users):
+**package.json** This file outlines all the settings for the React app.
 
-createReactAppGitIgnore
+1. `name` is the name of your app
+2. `version` is the current version
+3. `"private": true` is a failsafe setting to avoid accidentally publishing your app as a public package within the npm ecosystem.
+4. `dependencies` contains all the required node modules and versions required for the application. Here, it contains two dependencies, which allow us to use `react` and `react-dom` in our JavaScript. 
+5. `devDependencies` contains useful node modules and versions for using the React app in a development environment. Here, it contains one dependency, `react-scripts`, which provides a set of useful development scripts for working with React.
+6. `scripts` specifies aliases that you can use to access some of the react-scripts commands in a more efficient manner. For example running `npm test` in your command line will run `react-scripts test --env=jsdom` behind the scenes.
 
-package.json
-
-createReactAppPackageJson
-
-This file outlines all the settings for the React app.
-
-name is the name of your app
-version is the current version
-"private": true is a failsafe setting to avoid accidentally publishing your app as a public package within the npm ecosystem.
-dependencies contains all the required node modules and versions required for the application. Here, it contains two dependencies, which allow us to use react and react-dom in our JavaScript. In the screenshot above, the react version specified is ^15.5.4. This means that npm will install the most recent major version matching 15.x.x. In contrast, you may also see something like ~1.2.3 in package.json, which will only install the most recent minor version matching 1.2.x.
-devDependencies contains useful node modules and versions for using the React app in a development environment. Here, it contains one dependency, react-scripts, which provides a set of useful development scripts for working with React.
-scripts specifies aliases that you can use to access some of the react-scripts commands in a more efficient manner. For example running npm test in your command line will run react-scripts test --env=jsdom behind the scenes.
-node_modules
-
-This directory contains dependencies and sub-dependencies of packages used by the current React app, as specified by package.json. If you take a look, you may be surprised by how many there are.
-
-Running ls -1 | wc -l within the node_modules/ directory will yield more than 800 subfolders. This folder is automatically added to the .gitignore for good reason! Don’t worry, even with all these dependencies, the basic app will only be around 50 KB after being minified and compressed for production.
+**node_modules** This directory contains dependencies and sub-dependencies of packages used by the current React app, as specified by package.json. If you take a look, you may be surprised by how many there are. Running `ls -1 | wc -l` within the node_modules/ directory will yield more than 800 subfolders. This folder is automatically added to the .gitignore for good reason! Don’t worry, even with all these dependencies, the basic app will only be around 50 KB after being minified and compressed for production.
 
 package-lock.json
 
