@@ -53,9 +53,9 @@ create-react-app has taken care of setting up the main structure of the applicat
 
 
 ## STARTING THE REACT APP DEVELOPMENT SERVER
-As was stated in the success message when you ran create-react-app, you just need to run npm start in your app directory to begin serving the development server. It should auto-open a tab in your browser that points to http://localhost:3000/ (if not, manually visit that address). You will be greeted with the React welcome banner:
-
-createReactAppDemo
+As was stated in the success message when you ran create-react-app, you just need to 
+1. run `npm start` in your app directory to begin serving the development server. 
+2. It should auto-open a tab in your browser that points to `http://localhost:3000/` (if not, manually visit that address). You will be greeted with the React welcome banner:
 
 As stated, any changes to the source code will live-update here. Let’s see that in action.
 
