@@ -5,7 +5,7 @@ This React Tutorial will teach you how to use import and export to access one fi
 A React app is basically just a lot of components, setting state and passing props to one another. This tutorial will give you a real understanding of how to use props and state, you have by far the most important tools that you need!
 
 
-# Creating a React App
+# Creating a React App tutorial from [codeacademy](https://www.codecademy.com/articles/how-to-create-a-react-app)
 
 ## INTRODUCTION
 React is a user interface framework developed by Facebook. It has a quickly growing developer adoption rate and was ranked as the most loved language or technology in the 2017 Stackoverflow developer survey. This article will walk you through setting up your first React app and assumes you are familiar with text editors and command line navigation. We will be using the Node package manager (npm), so you will need to have Node installed.
@@ -17,7 +17,7 @@ Besides providing something that works out-of-the-box, this has the added benefi
 
 We will use npm to install the create-react-app command line interface (CLI) globally (-g).
 
-Open up your terminal and run npm install -g create-react-app: createReactApp
+Open up your terminal and `run npm install -g create-react-app: createReactApp`
 
 Now that you have the CLI available for use, navigate to the parent directory that you would like to place the application within. Then, run create-react-app with the name you would like to use for your project (just no capital letters :-) ).
 
