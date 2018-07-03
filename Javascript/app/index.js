@@ -1,4 +1,4 @@
 // Draw some text to the screen:
-drawName('Ready to Code?');
+drawName('Hello World!');
 // Animate the text!
 bounceBubbles();
