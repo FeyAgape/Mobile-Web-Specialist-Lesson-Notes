@@ -13,26 +13,20 @@ React is a user interface framework developed by Facebook. It has a quickly grow
 1. SET UP THE BOILERPLATE APPLICATION
 It is possible to manually create a React app, but Facebook has created a node module create-react-app to generate a boilerplate version of a React application.
 
-Besides providing something that works out-of-the-box, this has the added benefit of providing a consistent structure for React apps that you will recognize as you move between React projects. It also provides an out-of-the-box build script and development server.
+Besides providing something that works out-of-the-box, this has the added benefit of providing a consistent structure for React apps that you will recognize as you move between React projects. It also provides an out-of-the-box build script and development server. We will use npm to install the create-react-app command line interface (CLI) globally (-g).
 
-We will use npm to install the create-react-app command line interface (CLI) globally (-g).
-
-Open up your terminal and `run npm install -g create-react-app: createReactApp`
+### Installation
+Open up your terminal and `run npm install -g create-react-app`
 
 Now that you have the CLI available for use, navigate to the parent directory that you would like to place the application within. Then, run create-react-app with the name you would like to use for your project (just no capital letters :-) ).
 
-create-react-app <name-of-app>
+`create-react-app <name-of-app>` *dont include the <>*
 
-Upon completion, you will get some quick tips on how to use the application:
 
-createReactAppCommands
-
-Before we run the app, lets take a look around the app structure and see what it contains.
+Upon completion, you will get some quick tips on how to use the application. Before we run the app, lets take a look around the app structure and see what it contains.
 
 2. REACT APP STRUCTURE
 Change directories into the app you just created. If you list the contents of the directory including hidden files (ls -la), you should see the following structure:
-
-createReactAppStructure
 
 create-react-app has taken care of setting up the main structure of the application as well as a couple of developer settings. Most of what you see will not be visible to the visitor of your web app. React uses a tool called webpack which transforms the directories and files here into static assets. Visitors to your site are served those static assets.
 
