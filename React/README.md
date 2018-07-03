@@ -7,8 +7,10 @@ A React app is basically just a lot of components, setting state and passing pro
 
 # Creating a React App tutorial from [codeacademy](https://www.codecademy.com/articles/how-to-create-a-react-app)
 
+
 ## INTRODUCTION
 React is a user interface framework developed by Facebook. It has a quickly growing developer adoption rate and was ranked as the most loved language or technology in the 2017 Stackoverflow developer survey. This article will walk you through setting up your first React app and assumes you are familiar with text editors and command line navigation. We will be using the Node package manager (npm), so you will need to have Node installed.
+
 
 ## SET UP THE BOILERPLATE APPLICATION
 It is possible to manually create a React app, but Facebook has created a node module create-react-app to generate a boilerplate version of a React application.
@@ -23,6 +25,7 @@ Now that you have the CLI available for use, navigate to the parent directory th
 `create-react-app <name-of-app>` *dont include the <>*
 
 Upon completion, you will get some quick tips on how to use the application. Before we run the app, lets take a look around the app structure and see what it contains.
+
 
 ## REACT APP STRUCTURE
 Change directories into the app you just created. If you list the contents of the directory including hidden files (ls -la), you should see the following structure:
@@ -48,7 +51,8 @@ create-react-app has taken care of setting up the main structure of the applicat
 
 **src** This contains the JavaScript that will be processed by webpack and is the heart of the React app. Browsing this folder, you see the main App JavaScript component (App.js), its associated styles (App.css), and test suite (App.test.js). index.js and its styles (index.css) provide an entry into the App and also kicks off the registerServiceWorker.js. This service worker takes care of caching and updating files for the end-user. It allows for offline capability and faster page loads after the initial visit. More on this methodology is available [here at https://goo.gl/KwvDNy](https://github.com/facebook/create-react-app/blob/master/packages/react-scripts/template/README.md#making-a-progressive-web-app). As your React app grows, it is common to add a components/ directory to organize components and component-related files and a views directory to organize React views and view-related files.
 
-3. STARTING THE REACT APP DEVELOPMENT SERVER
+
+## STARTING THE REACT APP DEVELOPMENT SERVER
 As was stated in the success message when you ran create-react-app, you just need to run npm start in your app directory to begin serving the development server. It should auto-open a tab in your browser that points to http://localhost:3000/ (if not, manually visit that address). You will be greeted with the React welcome banner:
 
 createReactAppDemo
