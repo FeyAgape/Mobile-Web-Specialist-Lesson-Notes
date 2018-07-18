@@ -38,4 +38,11 @@ AJAX is a group of web technologies that let you make a requests programmaticall
 
 XMLHttpRequest (XHR) is the most common way of doing it.
 
-FETCH: does the exact same thing but with a cleaner API, utilizing promises, therefore integrates much better with the rest of the modern Javascript.
+FETCH: does the exact same thing but with a cleaner API, utilizing promises, therefore integrates much better with the rest of the modern Javascript APIs.
+
+### Example of a FETCH Request
+``fetch("/animals/cat.json")
+.then (response => response.text ())
+.then (body => console.log(body)); ``
+
+With FETCH, you can utilize all the HTTP methods the protocol specifies and have full control of which headers are been sent, well most of all the headers.
