@@ -46,3 +46,17 @@ FETCH: does the exact same thing but with a cleaner API, utilizing promises, the
 .then (body => console.log(body)); ``
 
 With FETCH, you can utilize all the HTTP methods the protocol specifies and have full control of which headers are been sent, well most of all the headers.
+
+### Another Fetch Request
+``
+fetch('password.txt', {
+	'method': 'PUT',
+	'headers': {
+		'X-Udacity-Exercise': 'fetch is awesome!'
+	}
+}).then(function( response) {
+	return response.text();
+	}) .then(function ( data ) {
+		console.log( data );
+		});
+	 ``
