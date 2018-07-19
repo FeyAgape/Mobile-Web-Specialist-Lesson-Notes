@@ -74,6 +74,7 @@ A controller manages the app's data. Here we use the property title to store a s
 ## Expression
 Expressions are used to display values on the page.
 
+### file directory:App
 
 ## Workflow
 So far this is thr typical workflow when making an AngularJS app:
@@ -110,3 +111,25 @@ In this way, filters help to separate the content in the controller from its pre
 1. date  `<p class="date">{{ product.pubdate | date }}</p>`
 
 2. uppercase `<p class="title">{{ product.name | uppercase }}</p>`
+
+
+### file directory:App2
+
+## ng-repeat II
+In the controller, we used products to store an array containing two objects.
+
+Then in the index.html we added <div ng-repeat="product in products">. 
+
+Like ng-app and ng-controller, the ng-repeat is a directive. It loops through an array and displays each element. Here, the ng-repeat repeats all the HTML inside <div class="col-md-6"> for each element in the products array.
+
+In this way, ng-repeat shows both products in the $scope.products array. Instead of writing the same HTML twice as before, we just use ng-repeat to generate the HTML twice.
+
+
+## Directives
+We've used a few directives so far:
+1. ng-app, 
+2. ng-controller, 
+3. ng-repeat, and 
+4. ng-src. 
+
+Directives bind behavior to HTML elements. When the app runs, AngularJS walks through each HTML element looking for directives. When it finds one, AngularJS triggers that behavior (like attaching a scope or looping through an array).
