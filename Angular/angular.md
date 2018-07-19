@@ -84,3 +84,29 @@ So far this is thr typical workflow when making an AngularJS app:
 
 3. Add data to $scope in the controller so they can be displayed with expressions in the view.
 
+
+### In the App Angualar example
+In the controller, we used an object to group together related data about a product. Then in the view = index.html we used dot notation to display the values.
+
+## Filters 
+Formats the value of an expression
+
+1. AngularJS filter can be used to format number into currency.
+`{{ product.price | currency  }}`
+
+Great! but, how does it work?
+
+1. AngularJS gets the value of product.price.
+
+2. It sends this number into the currency filter. The pipe symbol (|) takes the output on the left and "pipes" it to the right.
+
+3. The filter outputs a formatted currency with the dollar sign and the correct decimal places.
+
+In this way, filters help to separate the content in the controller from its presentation in the view.
+
+
+# AngularJS comes with a few built-in filters. find out more [here](https://docs.angularjs.org/api/ng/filter).
+
+1. date  `<p class="date">{{ product.pubdate | date }}</p>`
+
+2. uppercase `<p class="title">{{ product.name | uppercase }}</p>`
