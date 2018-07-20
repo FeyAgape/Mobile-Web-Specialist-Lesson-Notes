@@ -1,6 +1,6 @@
-# Angular
+# AngularJS is a framework for building dynamic web apps
 
-AngularJS is a JavaScript web framework aimed to make web apps simple to build and easy to maintain.
+AngularJS is a JavaScript web framework aimed to make web apps simple to build and easy to maintain. 
 
 
 ## Here are steps on how to build an AngularJS app
@@ -133,3 +133,12 @@ We've used a few directives so far:
 4. ng-src. 
 
 Directives bind behavior to HTML elements. When the app runs, AngularJS walks through each HTML element looking for directives. When it finds one, AngularJS triggers that behavior (like attaching a scope or looping through an array).
+
+### file directory:App3
+
+## ng-click 
+The ng-click is a directive. 
+
+When <p class="likes"> is clicked, ng-click tells AngularJS to run the plusOne() function in the controller.
+The plusOne() function gets the index of the product that was clicked, and then adds one to that product's likes property.
+Notice that the plusOne() doesn't interact with the view at all; it just updates the controller. Any change made to the controller shows up in the view.
