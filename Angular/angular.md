@@ -11,7 +11,8 @@ AngularJS is a JavaScript web framework aimed to make web apps simple to build a
 ar app = angular.module("myApp", []);`
 
 2. Then, in index.html add `<body ng-app="myApp">`. 
-``//index.html
+
+`//index.html
 <!doctype html>
 <html>
   <head>
@@ -45,7 +46,7 @@ ar app = angular.module("myApp", []);`
     <script src="js/controllers/MainController.js"></script>
   </body>
 </html>
-``
+`
 
 The `ng-app` is called a directive. It tells AngularJS that the myApp module will live within the <body> element, termed the application's scope. In other words, we used the ng-app directive to define the application scope.
 
