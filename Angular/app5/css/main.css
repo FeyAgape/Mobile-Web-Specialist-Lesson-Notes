@@ -80,3 +80,13 @@ h2 {
 .last {
  margin-bottom: 100px;
 }
+
+@media (min-width: 768px) {
+.col-sm-offset-7 {
+    margin-left: 48.333333%;
+}
+
+.col-sm-5 {
+    width: 49.666667%;
+}
+}
