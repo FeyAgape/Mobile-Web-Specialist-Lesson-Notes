@@ -12,7 +12,7 @@ ar app = angular.module("myApp", []);`
 
 2. Then, in index.html add `<body ng-app="myApp">`. 
 
-`<body  ng-app="myApp">
+```<body  ng-app="myApp">
     <div class="header">
       <div class="container">
         <h1>{{ title }}</h1>
@@ -35,7 +35,7 @@ ar app = angular.module("myApp", []);`
     <!-- Controllers -->
     <script src="js/controllers/MainController.js"></script>
   </body>
-`
+```
 
 The `ng-app` is called a directive. It tells AngularJS that the myApp module will live within the <body> element, termed the application's scope. In other words, we used the ng-app directive to define the application scope.
 
