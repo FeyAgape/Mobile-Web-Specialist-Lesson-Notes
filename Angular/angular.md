@@ -140,5 +140,46 @@ Why is creating your own directives useful?
 1. Readability. Directives let you write expressive HTML. Looking at index.html you can understand the app's behavior just by reading the HTML.
 2. Reusability. Directives let you create self-contained units of functionality. We could easily plug in this directive into another AngularJS app and avoid writing a lot of repetitive HTML.
 
+### file directory:App4
+
+## Built-in and Custom Directives
+
+First in `js/directives/appInfo.js`, we made a new directive. We used app.directive to create a new directive named 'appInfo'. It returns an object with three options:
+
+1. restrict specifies how the directive will be used in the view. The `'E'` means it will be used as a new HTML element.
+
+2. scope specifies that we will pass information into this directive through an attribute named info. The `=` tells the directive to look for an attribute named info in the `<app-info>` element, like this:
+
+`<app-info info="shutterbugg"></app-info>`
+
+The data in info becomes available to use in the template given by templateURL.
+
+3. templateUrl specifies the HTML to use in order to display the data in scope.info. Here we use the HTML in js/directives/appInfo.html
 
 ### We can also use Angular's built-in directives together with custom directives to create more readable apps.
+
+We used app.directive to create a new directive named 'installApp'.
+
+The directive contains the three options restrict, scope, and templateUrl that we saw before in the 'appInfo' directive.
+It also contains a fourth option link. The link is used to create interactive directives that respond to user actions.
+The link function takes three inputs:
+
+1. scope refers to the directive's scope. Any new properties attached to $scope will become available to use in the directive's template.
+
+2. element refers to the directive's HTML element.
+
+3. attrs contains the element's attributes.
+
+Inside the link function, there are two properties buttonText and installed, and the function download(). We'll use these in the directive's template next.
+
+The template uses Angular's built-in ng-click directive. When the button is clicked, ng-click will tell AngularJS to run the download() function in the directive.
+
+The download() function uses the scope.installed property to check if an app is installed. When an app is installed, download() does three things:
+
+1. toggles the .btn-active class
+
+2. changes the button text to "Uninstall"
+
+3. changes scope.installed to true
+
+**Directives are a powerful way to create self-contained, interactive components. Unlike jQuery which adds interactivity as a layer on top of HTML, AngularJS treats interactivity as a native component of HTML.**

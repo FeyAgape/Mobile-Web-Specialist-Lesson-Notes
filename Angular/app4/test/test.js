@@ -1,13 +1,19 @@
-describe('AppMarketApp', function(){
+describe('directives', function(){
 
   beforeEach(module('AppMarketApp'));
+  beforeEach(module('js/directives/installApp.html'));
 
-  it('Did you create $scope.apps and set it equal to an array?', inject(function($controller) {
-    var scope = {},
-          ctrl = $controller('MainController', {$scope:scope});
+  beforeEach(inject(function($rootScope, $compile, $injector) {
+    elm = angular.element("<install-app></install-app>");
 
-    expect(scope.apps).toBeDefined();
-    expect(scope.apps.length).toBeGreaterThan(1);
+    scope = $rootScope;
+
+    $compile(elm)(scope);
+    scope.$digest();
+  }));
+
+  it('Did you create a new directive named installApp?', inject(function($controller) {
+    expect(elm.hasClass('ng-isolate-scope')).toBeTruthy();
   }));
 
 });
