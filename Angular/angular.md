@@ -12,8 +12,7 @@ ar app = angular.module("myApp", []);`
 
 2. Then, in index.html add `<body ng-app="myApp">`. 
 
-`//index.html
-  <body  ng-app="myApp">
+`<body  ng-app="myApp">
     <div class="header">
       <div class="container">
         <h1>{{ title }}</h1>
