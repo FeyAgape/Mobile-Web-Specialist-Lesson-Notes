@@ -22,7 +22,7 @@ app.controller('MainController', ['$scope', function($scope) {
       name: 'Harry Potter & The Prisoner of Azkaban', 
       price: 11.99, 
       pubdate: new Date('1999', '07', '08'), 
-      cover: 'http://upload.wikimedia.org/wikipedia/en/b/b4/Harry_Potter_and_the_Prisoner_of_Azkaban_(US_cover).jpg',
+      cover: 'img/Harry_Potter_and_the_Prisoner_of_Azkaban.jpg',
       likes: 0,
       dislikes: 0 
     }, 
