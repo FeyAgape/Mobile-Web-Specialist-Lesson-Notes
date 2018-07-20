@@ -13,13 +13,6 @@ ar app = angular.module("myApp", []);`
 2. Then, in index.html add `<body ng-app="myApp">`. 
 
 `//index.html
-  <head>
-      <link href="https://s3.amazonaws.com/codecademy-content/projects/bootstrap.min.css" rel="stylesheet" />
-    <link href='https://fonts.googleapis.com/css?family=Roboto:500,300,700,400' rel='stylesheet' type='text/css'>
-    <link href="css/main.css" rel="stylesheet" />
-    <!-- Include the AngularJS library -->
-    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.5/angular.min.js"></script>
-  </head>
   <body  ng-app="myApp">
     <div class="header">
       <div class="container">
