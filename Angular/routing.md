@@ -19,3 +19,10 @@ Angular's application routes allows you to use multiple templates that display d
 8. As before, any properties attached to $scope become available to use in the view. This means in photo.html, we can display the photo's detail using expressions as done before.
 
 Notice that when you click on links, the app doesn't do a full reload. Only the part of the view specified by <div ng-view></div> changes.
+
+
+## Why are routes useful? 
+
+Instead of filling a single view with more code than needed, routes let us map URLs to self-contained controllers and templates. Furthermore, now that the app has URLs, users can easily bookmark and share the app's pages.
+
+While services are a way to make standalone communication logic, like forecast which fetches weather data from a server, routes are a way to manage apps containing more views.
