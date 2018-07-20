@@ -139,6 +139,13 @@ Directives bind behavior to HTML elements. When the app runs, AngularJS walks th
 ## ng-click 
 The ng-click is a directive. 
 
-When <p class="likes"> is clicked, ng-click tells AngularJS to run the plusOne() function in the controller.
-The plusOne() function gets the index of the product that was clicked, and then adds one to that product's likes property.
+When <p class="likes"> is clicked, ng-click tells AngularJS to run the plusOne() function in the controller. The plusOne() function gets the index of the product that was clicked, and then adds one to that product's likes property.
 Notice that the plusOne() doesn't interact with the view at all; it just updates the controller. Any change made to the controller shows up in the view.
+
+
+**AngularJS comes with a few built-in directives like ng-repeat and ng-click, however AngularJS makes it possible to create your own custom directives**
+
+Why is creating your own directives useful?
+
+1. Readability. Directives let you write expressive HTML. Looking at index.html you can understand the app's behavior just by reading the HTML.
+2. Reusability. Directives let you create self-contained units of functionality. We could easily plug in this directive into another AngularJS app and avoid writing a lot of repetitive HTML.
