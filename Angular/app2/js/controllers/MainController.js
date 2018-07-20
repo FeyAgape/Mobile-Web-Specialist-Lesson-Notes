@@ -1,30 +1,48 @@
 app.controller('MainController', ['$scope', function($scope) { 
-  $scope.title = 'This Month\'s Bestsellers'; 
-  $scope.promo = 'The most popular books this month.';
+  $scope.title = 'This Month\'s Collections'; 
+  $scope.promo = 'The Harry Porter Collections by J.K.Rowling.';
   $scope.products = [
   	{ 
-    	name: 'The Book of Trees', 
-    	price: 19, 
-    	pubdate: new Date('2014', '03', '08'), 
-    	cover: 'img/the-book-of-trees.jpg' 
+    	name: 'Harry Potter and the Philosophers Stone', 
+    	price: 4.89, 
+    	pubdate: new Date('1997', '06', '26'), 
+    	cover: 'img/1.jpg' 
   	}, 
   	{ 
-    	name: 'Program or be Programmed', 
-    	price: 8, 
-    	pubdate: new Date('2013', '08', '01'), 
-    	cover: 'img/program-or-be-programmed.jpg' 
+    	name: 'Harry Potter and the Chamber of Secrets', 
+    	price: 5.75, 
+    	pubdate: new Date('1998', '07', '02'), 
+    	cover: 'img/2.jpg' 
   	}, 
   	{ 
-    	name: 'Harry Potter & The Prisoner of Azkaban', 
-    	price: 11.99, 
+    	name: 'Harry Potter and The Prisoner of Azkaban', 
+    	price: 5.75, 
     	pubdate: new Date('1999', '07', '08'), 
-    	cover: 'img/Harry_Potter_and_the_Prisoner_of_Azkaban.jpg' 
+    	cover: 'img/3.jpg' 
   	}, 
   	{ 
-    	name: 'Ready Player One', 
-    	price: 7.99, 
-    	pubdate: new Date('2011', '08', '16'), 
-    	cover: 'http://upload.wikimedia.org/wikipedia/en/a/a4/Ready_Player_One_cover.jpg' 
-  	}
-  ]
+    	name: 'Harry Potter and the Goblet of Fire', 
+      price: 6.47, 
+      pubdate: new Date('2000', '07', '08'), 
+      cover: 'img/4.jpg' 
+    }, 
+    { 
+      name: 'Harry Potter and the Order of the Phoenix', 
+      price: 6.47, 
+      pubdate: new Date('2003', '06', '21'), 
+      cover: 'img/5.jpg' 
+    }, 
+    { 
+      name: 'Harry Potter and the Half-Blood Princen', 
+      price: 6.49, 
+      pubdate: new Date('2005', '07', '16'), 
+      cover: 'img/6.jpg' 
+    },
+    {
+     name: 'Harry Potter and the Deathly Hallows', 
+      price: 6.47, 
+      pubdate: new Date('2007', '07', '21'), 
+      cover: 'img/7.jpg' 
+    } 
+  ];
 }]);
