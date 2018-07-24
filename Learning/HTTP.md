@@ -106,3 +106,8 @@ A RESTful API is one that follows a design called REST that works expecially wel
 **REST = REpresentational State Transfer**
 
 ## TCP
+
+
+
+## HTTPS
+Is a way to protect you and your users from data breach. It is also more important has API's are only available if your website is secured with HTTPS
