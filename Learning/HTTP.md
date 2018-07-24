@@ -114,3 +114,6 @@ If you're on Chrome, copy and paste this into your browser to jump to your compu
 
 ## HTTPS
 Is a way to protect you and your users from data breach. It is also more important has API's are only available if your website is secured with HTTPS
+
+## Multiplexing
+Is a system or signal involving simultaneous transmission of several messages along a single channel of communication
