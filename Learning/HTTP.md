@@ -87,6 +87,12 @@ Headers contain additional data about requests or responses. These are some of t
 
 There are a lot more headers and a lot to explore. If you want to know more, check out [here](https://www.google.com/url?q=https://en.wikipedia.org/wiki/List_of_HTTP_header_fields&sa=D&ust=1460140076629000&usg=AFQjCNHMTe05Wkomeyd8bB9GvVrUyuC1Dg) for more information on HTTP headers.
 
+### eg
+```HHTP/1.1 
+Host: test.com
+X-Udacity-Exercise-Header: Sprinkles are awesome
+Date: Wed, 11 Jan 1995 23:00:00 GMT
+```
 
 ## Netcat
 Netcat is a utility that's used for sending and receiving messages over a network connection. Netcat is known as the Swiss Army knife of networking tools, and we'll be using it to communicate directly with a server.
@@ -95,4 +101,8 @@ Netcat is a utility that's used for sending and receiving messages over a networ
 There are many variations of Netcat, and the one I'll be using is accessed with the nc command.
 
 ## RESTFUL APIs
+A RESTful API is one that follows a design called REST that works expecially well with HTTP,
+
+**REST = REpresentational State Transfer**
+
 
