@@ -106,7 +106,10 @@ A RESTful API is one that follows a design called REST that works expecially wel
 **REST = REpresentational State Transfer**
 
 ## TCP
+## TLS = Transport Layer Security
+## FTP = File Transfer Protocol  
 
+If you're on Chrome, copy and paste this into your browser to jump to your computer's certificates - chrome://settings/search#Certificates
 
 
 ## HTTPS
