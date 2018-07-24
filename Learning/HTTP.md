@@ -62,15 +62,17 @@ fetch('password.txt', {
 	 ``
 
 ## HTTP Request
-Everyrequest begins with a unique verb called a **method** and serves a specific purpose.
+Every request begins with a unique verb called a **method** and serves a specific purpose. Every request-responce pair is called a round trip and they take a lot of time to complete.
 
 ## Methods
 1. GET
 2. POST
 3. PUT
 4. DELETE
-5. HEAD
-6. OPTIONS
+5. HEAD: Allows you to get the headers of a file without having to receive the entire file itself.
+6. OPTIONS: Is supposed to give you a list of methods that are accepted on the current URL, but not every server sopports this.
+
+## HTTP Verbs
 
 
 ## Netcat
