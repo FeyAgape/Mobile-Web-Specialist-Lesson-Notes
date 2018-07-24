@@ -61,5 +61,23 @@ fetch('password.txt', {
 		});
 	 ``
 
+## HTTP Request
+Everyrequest begins with a unique verb called a **method** and serves a specific purpose.
+
+## Methods
+1. GET
+2. POST
+3. PUT
+4. DELETE
+5. HEAD
+6. OPTIONS
+
+
+## Netcat
+Netcat is a utility that's used for sending and receiving messages over a network connection. Netcat is known as the Swiss Army knife of networking tools, and we'll be using it to communicate directly with a server.
+
+### Netcat command
+There are many variations of Netcat, and the one I'll be using is accessed with the nc command.
 
 ## RESTFUL APIs
+
