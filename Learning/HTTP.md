@@ -116,4 +116,17 @@ If you're on Chrome, copy and paste this into your browser to jump to your compu
 Is a way to protect you and your users from data breach. It is also more important has API's are only available if your website is secured with HTTPS
 
 ## Multiplexing
-Is a system or signal involving simultaneous transmission of several messages along a single channel of communication
+Is a system or signal involving simultaneous transmission of several messages along a single channel of communication.
+
+## Message passing
+Another technique that was explicitly designed to allow cross-origin communication is called message passing. `postMessage()` is a function that can be called to pass a message to other windows and iframes, even if they come from a different origin. This creates a message event you subscribe to like any other event. For security, the receiver can inspect the message’s origin and content.
+
+While postMessage is much cleaner and allows more granular control than the other cross-origin options, it sadly hasn’t been as widely adopted by API providers.
+
+
+## CORS (Cross Oringin Resource Sharing)
+Is a powerfull enginnering solution to the singe origin problem, and has been adapted by API provider as the primary way to share resources.
+
+## CORS Headers 
+They permit cross origin requests without relying on Javascript, though they do needs some server side code. CORS Headers allows servers to specify a set of origins that are allowed to access its resources.
+If the request referrer header is on that list, it will be able to inspect the answer and use the data.
