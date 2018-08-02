@@ -133,3 +133,22 @@ This is just one of many, many ways to architect a web application, but it's one
 ## Making requests
 The requests library is a Python library for sending requests to web servers and interpreting the responses. It's not included in the Python standard library, though; you'll need to install it. 
 In your terminal, run `pip3 install requests` to fetch and install the requests library.
+
+`requests.get("http://localhost:8000/")`
+
+ r.content is a bytes object representing the literal binary data that the server sent. r.text is the same data but interpreted as a str object, a Unicode string.
+
+If the requests.get call can reach an HTTP server at all, it will give you a Response object. If the request failed, the Response object has a status_code data member — either 200, or 404, or some other code.
+
+But if it wasn't able to get to an HTTP server, for instance because the site doesn't exist, then requests.get will raise an exception.
+
+However: Some Internet service providers will try to redirect browsers to an advertising site if you try to access a site that doesn't exist. This is called DNS hijacking, and it's nonstandard behavior, but some do it anyway. If your ISP hijacks DNS, you won't get exceptions when you try to access nonexistent sites. Standards-compliant DNS services such as Google Public DNS don't hijack.
+
+
+
+## Using a JSON(Javascript Object Notation) API
+As a web developer, you will deal with data in a lot of different formats, especially when your code calls out to APIs provided by other developers. It's not uncommon for a large software system to have parts that deal with a dozen or more different data formats. Fortunately, usually someone else has already written libraries to help you read and write these formats.
+
+JSON is a data format based on the syntax of JavaScript, often used for web-based APIs. There are a lot of services that let you send HTTP queries and get back structured data in JSON format. You can read more about the JSON format at [http://www.json.org/](http://www.json.org/).
+
+Python has a built-in json module; and as it happens, the requests module makes use of it. A Response object has a .json method; if the response data is JSON, you can call this method to translate the JSON data into a Python dictionary.
