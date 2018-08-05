@@ -104,3 +104,9 @@ in_data = in_cookie["bearname"].value
 ```
 
 Be aware that a request might not have a cookie on it, in which case accessing the Cookie header will raise a KeyError exception; or the cookie might not be valid, in which case the SimpleCookie constructor will raise `http.cookies.CookieError`
+
+**Important safety tip:** Even though browsers make it difficult for users to modify cookies, it's possible for a user to modify a cookie value. Higher-level web toolkits, such as Flask (in Python) or Rails (in Ruby) will cryptographically sign your cookies so that they won't be accepted if they are modified. Quite often, high-security web applications use a cookie just to store a session ID, which is a key to a server-side database containing user information.
+
+**Another important safety tip:** If you're displaying the cookie data as HTML, you need to be careful to escape any HTML special characters that might be in it. An easy way to do this in Python is to use the `html.escape` function, from the built-in html module!
+
+For a more information on cookie handling in Python, see the [documentation](https://docs.python.org/3/library/http.cookies.html) for the http.cookies module.
