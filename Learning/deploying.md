@@ -167,3 +167,18 @@ The HTTP PUT method can be used for creating a new resources. The client sends t
 The destructive counterpart to PUT is DELETE, for removing a resource from the server. After a DELETE has happened successfully, further GET requests for that resource will yield 404 Not Found ... unless, of course, a new resource is later created with the same name!
 
 Most applications that involve creating and deleting resources on the server are going to require authentication, to make sure that the client is actually someone we want to trust with that power.
+
+
+## PATCH for making changes
+The PATCH method is a relatively new addition to HTTP. It expresses the idea of patching a resource, or changing it in some well-defined way. (If you've used Git, you can think of patching as what applying a Git commit does to the files in a repository.)
+
+However, just as HTTP doesn't specify what format a resource has to be in, it also doesn't specify in what format a patch can be in: how it should represent the changes that are intended to be applied. That's up to the application to decide. An application could send diffs over HTTP PATCH requests, for instance. One standardized format for PATCH requests is the JSON Patch format, which expresses changes to a piece of JSON data. A different one is JSON Merge Patch.
+
+## HEAD, OPTIONS, TRACE for debugging
+There are a number of additional methods that HTTP supports for various sorts of debugging and examining servers.
+
+1. HEAD works just like GET, except the server doesn't return any content — just headers.
+
+2. OPTIONS can be used to find out what features the server supports.
+
+3. TRACE echoes back what the server received from the client — but is often disabled for security reasons.
