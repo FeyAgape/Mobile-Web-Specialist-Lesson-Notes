@@ -75,3 +75,32 @@ The next two fields, Domain and Path, describe the scope of the cookie — that 
 The fields that Chrome describes as "Send for" and "Accessible to script" are internally called Secure and HttpOnly, and they are boolean flags (true or false values). The internal names are a little bit misleading. If the Secure flag is set, then the cookie will only be sent over HTTPS (encrypted) connections, not plain HTTP. If the HttpOnly flag is set, then the cookie will not be accessible to JavaScript code running on the page.
 
 Finally, the last two fields deal with the lifetime of the cookie — how long it should last. The creation time is just the time of the response that set the cookie. The expiration time is when the server wants the browser to stop saving the cookie. There are two different ways a server can set this: it can set an Expires field with a specific date and time, or a Max-Age field with a number of seconds. If no expiration field is set, then a cookie is expired when the browser closes.
+
+
+## Using cookies in Python
+To set a cookie from a Python HTTP server, all you need to do is set the Set-Cookie header on an HTTP response. Similarly, to read a cookie in an incoming request, you read the Cookie header. However, the format of these headers is a little bit tricky; I don't recommend formatting them by hand. Python's http.cookies module provides handy utilities for doing so.
+
+To create a cookie on a Python server, use the SimpleCookie class. This class is based on a dictionary, but has some special behavior once you create a key within it:
+
+```
+from http.cookies import SimpleCookie, CookieError
+
+out_cookie = SimpleCookie()
+out_cookie["bearname"] = "Smokey Bear"
+out_cookie["bearname"]["max-age"] = 600
+out_cookie["bearname"]["httponly"] = True
+```
+Then you can send the cookie as a header from your request handler:
+
+```
+self.send_header("Set-Cookie", out_cookie["bearname"].OutputString())
+```
+
+To read incoming cookies, create a SimpleCookie from the Cookie header:
+
+```
+in_cookie = SimpleCookie(self.headers["Cookie"])
+in_data = in_cookie["bearname"].value
+```
+
+Be aware that a request might not have a cookie on it, in which case accessing the Cookie header will raise a KeyError exception; or the cookie might not be valid, in which case the SimpleCookie constructor will raise `http.cookies.CookieError`
