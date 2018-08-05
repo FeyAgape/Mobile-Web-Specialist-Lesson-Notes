@@ -151,3 +151,5 @@ But the cert also contains metadata that says what DNS domain the certificate is
 
 ## How does TLS assure integrity?
 Every request and response sent over a TLS connection is sent with a message authentication code (MAC) that the other end of the connection can verify to make sure that the message hasn't been altered or damaged in transit.
+
+**Note:** HTTPS only protects your data in transit. It doesn't protect it from an attacker who has taken over your computer, or the computer that's running your service. 
