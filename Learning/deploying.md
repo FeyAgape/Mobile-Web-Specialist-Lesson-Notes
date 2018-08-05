@@ -119,3 +119,13 @@ Imagine what a bad guy could do if they could convince your browser that their s
 In the immortal words of Dr. Egon Spengler: It would be bad.
 
 This is just one reason that DNS is essential to web security. If a bad guy can take control of your site's DNS domain, they can send all your web traffic to their evil server … and if the bad guy can fool users' browsers into sending that traffic their way, they can steal the users' cookies and reuse them to break into those users' accounts on your site.
+
+
+## What HTTPS does for you
+When a browser and a server speak HTTPS, they're just speaking HTTP, but over an encrypted connection. The encryption follows a standard protocol called Transport Layer Security, or TLS for short. TLS provides some important guarantees for web security:
+
+1. It keeps the connection private by encrypting everything sent over it. Only the server and browser should be able to read what's being sent.
+
+2. It lets the browser authenticate the server. For instance, when a user accesses https://www.udacity.com/, they can be sure that the response they're seeing is really from Udacity's servers and not from an impostor.
+
+3. It helps protect the integrity of the data sent over that connection — checking that it has not been (accidentally or deliberately) modified or replaced.
