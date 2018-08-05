@@ -165,3 +165,5 @@ The HTTP PUT method can be used for creating a new resources. The client sends t
 
 ## DELETE for, well, deleting things
 The destructive counterpart to PUT is DELETE, for removing a resource from the server. After a DELETE has happened successfully, further GET requests for that resource will yield 404 Not Found ... unless, of course, a new resource is later created with the same name!
+
+Most applications that involve creating and deleting resources on the server are going to require authentication, to make sure that the client is actually someone we want to trust with that power.
