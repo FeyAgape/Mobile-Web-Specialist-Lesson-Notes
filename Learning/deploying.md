@@ -110,3 +110,12 @@ Be aware that a request might not have a cookie on it, in which case accessing t
 **Another important safety tip:** If you're displaying the cookie data as HTML, you need to be careful to escape any HTML special characters that might be in it. An easy way to do this in Python is to use the `html.escape` function, from the built-in html module!
 
 For a more information on cookie handling in Python, see the [documentation](https://docs.python.org/3/library/http.cookies.html) for the http.cookies module.
+
+## DNS domains and cookie security
+A DNS domain links a particular hostname to a computer's IP address. But it also indicates that the owner of that domain intends for that computer to be treated as part of that domain.
+
+Imagine what a bad guy could do if they could convince your browser that their server evilbox was part of (say) Facebook, and get you to request a Facebook URL from evilbox instead of from Facebook's real servers. Your browser would send your facebook.com cookies to evilbox along with that request. But these cookies are what prove your identity to Facebook … so then the bad guy could use those cookies to access your Facebook account and send spam messages to all your friends.
+
+In the immortal words of Dr. Egon Spengler: It would be bad.
+
+This is just one reason that DNS is essential to web security. If a bad guy can take control of your site's DNS domain, they can send all your web traffic to their evil server … and if the bad guy can fool users' browsers into sending that traffic their way, they can steal the users' cookies and reuse them to break into those users' accounts on your site.
