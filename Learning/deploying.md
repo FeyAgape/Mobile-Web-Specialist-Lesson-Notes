@@ -182,3 +182,9 @@ There are a number of additional methods that HTTP supports for various sorts of
 2. OPTIONS can be used to find out what features the server supports.
 
 3. TRACE echoes back what the server received from the client — but is often disabled for security reasons.
+
+
+## Multiplexing
+But if you're requesting hundreds of different tiny files from the server — as in this demo or the Gophertiles demo — it's kind of limiting to only be able to fetch six at a time. This is particularly true when the latency (delay) between the server and browser gets high. The browser can't start fetching the seventh image until it's fully loaded the first six. The greater the latency, the worse this affects the user experience.
+
+HTTP/2 changes this around by multiplexing requests and responses over a single connection. The browser can send several requests all at once, and the server can send responses as quickly as it can get to them. There's no limit on how many can be in flight at once.
