@@ -1,2 +1,2 @@
-# RAIL (Respomse, Animation, Idle and Load)
+# RAIL (Response, Animation, Idle and Load)
 
